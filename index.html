@@ -1,0 +1,1486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Callo's Way — The Art of Conscious Empowerment</title>
+<meta name="description" content="Companion site for Callo's Way: The Art of Conscious Empowerment by Daniel D. Calloway III. Practices, the Callo Circuit, and discussion guide.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Nunito+Sans:wght@300;400;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root {
+  --earth: #2C1810;
+  --clay: #6B3A2A;
+  --amber: #C47D2B;
+  --gold: #D4A54A;
+  --sand: #E8D5B7;
+  --cream: #FAF3E8;
+  --sage: #5A6B4E;
+  --deep-sage: #3A4A32;
+  --mist: #B8C4A8;
+  --slate: #4A4A4A;
+  --warm-white: #FEFCF7;
+  --phase-awareness: #7B6BA5;
+  --phase-regulation: #4A8B6E;
+  --phase-lineage: #B8763C;
+  --phase-environment: #5A8BA0;
+  --phase-coherence: #D4A54A;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Nunito Sans', sans-serif;
+  background: var(--warm-white);
+  color: var(--earth);
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ═══ HERO ═══ */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  background: linear-gradient(160deg, var(--earth) 0%, #1A0F0A 40%, #2A1A12 100%);
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 600px 600px at 20% 30%, rgba(196,125,43,0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 500px 500px at 80% 70%, rgba(90,107,78,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Animated concentric rings — representing rhythm/signal */
+.signal-rings {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.signal-rings .ring {
+  position: absolute;
+  border: 1px solid rgba(212,165,74,0.08);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: pulse-ring 8s ease-in-out infinite;
+}
+
+.signal-rings .ring:nth-child(1) { width: 200px; height: 200px; animation-delay: 0s; }
+.signal-rings .ring:nth-child(2) { width: 320px; height: 320px; animation-delay: 1.5s; }
+.signal-rings .ring:nth-child(3) { width: 440px; height: 440px; animation-delay: 3s; }
+.signal-rings .ring:nth-child(4) { width: 560px; height: 560px; animation-delay: 4.5s; }
+
+@keyframes pulse-ring {
+  0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 0.7; transform: translate(-50%, -50%) scale(1.05); }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 2rem;
+  max-width: 720px;
+}
+
+.hero-subtitle-top {
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 300;
+  font-size: 0.8rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0;
+  animation: fadeUp 1s 0.3s forwards;
+  margin-bottom: 1.5rem;
+}
+
+.hero-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  color: var(--cream);
+  line-height: 1.1;
+  font-weight: 400;
+  opacity: 0;
+  animation: fadeUp 1s 0.6s forwards;
+}
+
+.hero-title em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.hero-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.15rem, 2.5vw, 1.5rem);
+  color: var(--sand);
+  font-weight: 300;
+  font-style: italic;
+  margin-top: 1.2rem;
+  opacity: 0;
+  animation: fadeUp 1s 0.9s forwards;
+}
+
+.hero-author {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(232,213,183,0.5);
+  margin-top: 2.5rem;
+  opacity: 0;
+  animation: fadeUp 1s 1.2s forwards;
+}
+
+.hero-cta {
+  margin-top: 3rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeUp 1s 1.5s forwards;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.85rem 2rem;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary {
+  background: var(--gold);
+  color: var(--earth);
+}
+
+.btn-primary:hover {
+  background: var(--amber);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(212,165,74,0.3);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--sand);
+  border: 1px solid rgba(232,213,183,0.3);
+}
+
+.btn-ghost:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(232,213,183,0.3);
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  animation: breathe 4s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ═══ NAV ═══ */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(254,252,247,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(44,24,16,0.06);
+  padding: 0.8rem 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.nav a {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--clay);
+  transition: color 0.3s;
+  padding: 0.3rem 0;
+}
+
+.nav a:hover { color: var(--gold); }
+
+/* ═══ SECTIONS ═══ */
+section {
+  padding: 5rem 2rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 0.8rem;
+}
+
+.section-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  color: var(--earth);
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.section-intro {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  color: var(--slate);
+  font-weight: 300;
+  font-style: italic;
+  max-width: 680px;
+  margin-bottom: 3rem;
+}
+
+/* ═══ THESIS ═══ */
+#thesis {
+  background: linear-gradient(180deg, var(--warm-white) 0%, var(--cream) 100%);
+  max-width: 100%;
+  padding-bottom: 4rem;
+}
+
+#thesis > div {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.thesis-block {
+  position: relative;
+  padding: 3rem;
+  background: var(--warm-white);
+  border-left: 3px solid var(--gold);
+  margin-top: 2rem;
+  border-radius: 0 4px 4px 0;
+  box-shadow: 0 2px 20px rgba(44,24,16,0.04);
+}
+
+.thesis-block p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  line-height: 1.8;
+  color: var(--earth);
+  font-weight: 400;
+}
+
+.thesis-block .accent {
+  color: var(--amber);
+  font-weight: 500;
+}
+
+.thesis-signal {
+  text-align: center;
+  margin-top: 2.5rem;
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.4rem;
+  color: var(--clay);
+  font-style: italic;
+}
+
+/* ═══ PHASES ═══ */
+.phases-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.phase-card {
+  position: relative;
+  background: var(--warm-white);
+  border-radius: 6px;
+  padding: 2rem 1.8rem;
+  border-top: 3px solid;
+  box-shadow: 0 2px 16px rgba(44,24,16,0.04);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: default;
+  overflow: hidden;
+}
+
+.phase-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 24px rgba(44,24,16,0.08);
+}
+
+.phase-card[data-phase="awareness"] { border-color: var(--phase-awareness); }
+.phase-card[data-phase="regulation"] { border-color: var(--phase-regulation); }
+.phase-card[data-phase="lineage"] { border-color: var(--phase-lineage); }
+.phase-card[data-phase="environment"] { border-color: var(--phase-environment); }
+.phase-card[data-phase="coherence"] { border-color: var(--phase-coherence); }
+
+.phase-number {
+  font-family: 'DM Serif Display', serif;
+  font-size: 2.5rem;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.phase-card[data-phase="awareness"] .phase-number { color: var(--phase-awareness); }
+.phase-card[data-phase="regulation"] .phase-number { color: var(--phase-regulation); }
+.phase-card[data-phase="lineage"] .phase-number { color: var(--phase-lineage); }
+.phase-card[data-phase="environment"] .phase-number { color: var(--phase-environment); }
+.phase-card[data-phase="coherence"] .phase-number { color: var(--phase-coherence); }
+
+.phase-name {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.3rem;
+  color: var(--earth);
+  margin-bottom: 0.4rem;
+}
+
+.phase-sub {
+  font-size: 0.75rem;
+  color: var(--slate);
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.phase-chapters {
+  list-style: none;
+  padding: 0;
+}
+
+.phase-chapters li {
+  font-size: 0.85rem;
+  color: var(--clay);
+  padding: 0.35rem 0;
+  border-bottom: 1px solid rgba(44,24,16,0.04);
+}
+
+.phase-chapters li:last-child { border: none; }
+
+/* ═══ CALLO CIRCUIT ═══ */
+#circuit {
+  background: var(--earth);
+  max-width: 100%;
+  padding: 5rem 2rem;
+  color: var(--cream);
+}
+
+#circuit .section-label { color: var(--gold); }
+#circuit .section-title { color: var(--cream); }
+#circuit .section-intro { color: var(--sand); }
+
+#circuit > div {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.circuit-flow {
+  display: flex;
+  gap: 0;
+  margin-top: 2.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.circuit-step {
+  flex: 1;
+  min-width: 160px;
+  max-width: 200px;
+  padding: 2rem 1.2rem;
+  text-align: center;
+  position: relative;
+  transition: background 0.3s;
+  cursor: default;
+  border-radius: 4px;
+}
+
+.circuit-step:hover {
+  background: rgba(212,165,74,0.06);
+}
+
+.circuit-step::after {
+  content: '→';
+  position: absolute;
+  right: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(212,165,74,0.3);
+  font-size: 1.2rem;
+}
+
+.circuit-step:last-child::after { content: ''; }
+
+.circuit-icon {
+  font-size: 1.8rem;
+  margin-bottom: 0.8rem;
+  display: block;
+}
+
+.circuit-name {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.1rem;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+
+.circuit-desc {
+  font-size: 0.82rem;
+  color: var(--sand);
+  line-height: 1.5;
+}
+
+/* ═══ PRACTICES ═══ */
+.practices-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.practice-item {
+  background: var(--warm-white);
+  border: 1px solid rgba(44,24,16,0.06);
+  border-radius: 6px;
+  overflow: hidden;
+  transition: box-shadow 0.3s;
+}
+
+.practice-item:hover {
+  box-shadow: 0 2px 16px rgba(44,24,16,0.06);
+}
+
+.practice-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem 1.5rem;
+  cursor: pointer;
+  gap: 1rem;
+}
+
+.practice-header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.practice-phase-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.practice-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.1rem;
+  color: var(--earth);
+}
+
+.practice-meta {
+  font-size: 0.75rem;
+  color: var(--slate);
+  white-space: nowrap;
+}
+
+.practice-toggle {
+  font-size: 1.2rem;
+  color: var(--clay);
+  transition: transform 0.3s;
+}
+
+.practice-item.open .practice-toggle {
+  transform: rotate(45deg);
+}
+
+.practice-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+
+.practice-body-inner {
+  padding: 0 1.5rem 1.5rem;
+  border-top: 1px solid rgba(44,24,16,0.04);
+  padding-top: 1.2rem;
+}
+
+.practice-when {
+  font-size: 0.85rem;
+  color: var(--amber);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.practice-steps {
+  counter-reset: step;
+  list-style: none;
+  padding: 0;
+}
+
+.practice-steps li {
+  counter-increment: step;
+  position: relative;
+  padding-left: 2.5rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--earth);
+}
+
+.practice-steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1.6rem;
+  height: 1.6rem;
+  background: var(--cream);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'DM Serif Display', serif;
+  font-size: 0.8rem;
+  color: var(--clay);
+}
+
+.practice-steps li strong {
+  font-weight: 600;
+  color: var(--clay);
+}
+
+.practice-affirmation {
+  margin-top: 1rem;
+  padding: 0.8rem 1.2rem;
+  background: var(--cream);
+  border-radius: 4px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--clay);
+}
+
+/* ═══ SIGNAL CHECK ═══ */
+#signal-check {
+  background: linear-gradient(180deg, var(--cream) 0%, var(--warm-white) 100%);
+  max-width: 100%;
+  padding: 5rem 2rem;
+}
+
+#signal-check > div {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.signal-question {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid rgba(44,24,16,0.06);
+}
+
+.signal-question:last-of-type { border: none; }
+
+.sq-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  color: var(--earth);
+  margin-bottom: 0.8rem;
+}
+
+.sq-options {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.sq-option {
+  padding: 0.5rem 1.2rem;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 400;
+  border: 1px solid rgba(44,24,16,0.12);
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: var(--warm-white);
+  color: var(--earth);
+}
+
+.sq-option:hover {
+  border-color: var(--amber);
+  background: var(--cream);
+}
+
+.sq-option.selected {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--earth);
+  font-weight: 600;
+}
+
+.signal-result {
+  display: none;
+  margin-top: 2.5rem;
+  padding: 2.5rem;
+  background: var(--warm-white);
+  border-radius: 6px;
+  border-left: 3px solid var(--gold);
+  box-shadow: 0 2px 20px rgba(44,24,16,0.05);
+}
+
+.signal-result.visible { display: block; animation: fadeUp 0.5s forwards; }
+
+.result-label {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 0.5rem;
+}
+
+.result-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.6rem;
+  color: var(--earth);
+  margin-bottom: 0.8rem;
+}
+
+.result-body {
+  font-size: 0.95rem;
+  color: var(--clay);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.result-practice {
+  padding: 1rem;
+  background: var(--cream);
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: var(--earth);
+}
+
+.result-practice strong {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  color: var(--clay);
+}
+
+.signal-submit {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+/* ═══ DISCUSSION ═══ */
+.discussion-part {
+  margin-bottom: 1.5rem;
+}
+
+.discussion-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  background: var(--cream);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.discussion-header:hover {
+  background: var(--sand);
+}
+
+.discussion-part-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.05rem;
+  color: var(--earth);
+}
+
+.discussion-toggle {
+  color: var(--clay);
+  font-size: 1rem;
+  transition: transform 0.3s;
+}
+
+.discussion-part.open .discussion-toggle {
+  transform: rotate(45deg);
+}
+
+.discussion-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+
+.discussion-body-inner {
+  padding: 1.2rem 1.5rem;
+}
+
+.discussion-body-inner ol {
+  padding-left: 1.2rem;
+}
+
+.discussion-body-inner li {
+  font-size: 0.9rem;
+  color: var(--clay);
+  margin-bottom: 0.8rem;
+  line-height: 1.6;
+}
+
+/* ═══ AUTHOR ═══ */
+#author {
+  background: var(--earth);
+  max-width: 100%;
+  padding: 5rem 2rem;
+  color: var(--cream);
+}
+
+#author > div {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+#author .section-label { color: var(--gold); }
+#author .section-title { color: var(--cream); }
+
+.author-bio {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  color: var(--sand);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.author-links {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.author-links a {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--gold);
+  padding-bottom: 2px;
+  border-bottom: 1px solid rgba(212,165,74,0.3);
+  transition: border-color 0.3s;
+}
+
+.author-links a:hover {
+  border-color: var(--gold);
+}
+
+/* ═══ FOOTER ═══ */
+footer {
+  text-align: center;
+  padding: 2.5rem 2rem;
+  background: #1A0F0A;
+  color: rgba(232,213,183,0.3);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+}
+
+footer a {
+  color: rgba(232,213,183,0.5);
+  text-decoration: none;
+}
+
+footer a:hover { color: var(--gold); }
+
+/* ═══ RESPONSIVE ═══ */
+@media (max-width: 768px) {
+  section { padding: 3.5rem 1.5rem; }
+  .circuit-flow { flex-direction: column; align-items: center; }
+  .circuit-step { max-width: 100%; min-width: auto; }
+  .circuit-step::after { content: '↓'; right: auto; left: 50%; top: auto; bottom: -6px; transform: translateX(-50%); }
+  .circuit-step:last-child::after { content: ''; }
+  .nav { gap: 0.8rem; padding: 0.7rem 1rem; }
+  .nav a { font-size: 0.65rem; letter-spacing: 0.12em; }
+  .phases-grid { grid-template-columns: 1fr; }
+  .signal-rings { width: 350px; height: 350px; }
+}
+
+@media (max-width: 480px) {
+  .hero-cta { flex-direction: column; align-items: center; }
+  .btn { width: 100%; max-width: 280px; text-align: center; }
+}
+
+/* ═══ BREATHING INDICATOR ═══ */
+.breath-indicator {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--gold);
+  opacity: 0.15;
+  animation: breath-circle 7s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 50;
+}
+
+@keyframes breath-circle {
+  0%, 100% { transform: scale(0.6); opacity: 0.1; }
+  35% { transform: scale(1); opacity: 0.2; }
+  50% { transform: scale(1); opacity: 0.2; }
+  85% { transform: scale(0.6); opacity: 0.1; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ HERO ═══ -->
+<div class="hero">
+  <div class="signal-rings">
+    <div class="ring"></div>
+    <div class="ring"></div>
+    <div class="ring"></div>
+    <div class="ring"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-subtitle-top">The Callo's Way Coherence Series</div>
+    <h1 class="hero-title">Callo's <em>Way</em></h1>
+    <p class="hero-tagline">The Art of Conscious Empowerment — A Rhythm Remembered</p>
+    <p class="hero-author">Daniel D. Calloway III</p>
+    <div class="hero-cta">
+      <a href="https://a.co/d/0cH8SsNl" class="btn btn-primary" target="_blank" rel="noopener">Get the Book</a>
+      <a href="https://callosway.gumroad.com/l/uqqcu" class="btn btn-ghost" target="_blank" rel="noopener">Digital Edition</a>
+    </div>
+  </div>
+  <div class="scroll-hint">Begin</div>
+</div>
+
+<!-- ═══ NAV ═══ -->
+<nav class="nav" id="nav">
+  <a href="#thesis">Thesis</a>
+  <a href="#phases">Five Phases</a>
+  <a href="#circuit">Callo Circuit</a>
+  <a href="#practices">Practices</a>
+  <a href="#signal-check">Signal Check</a>
+  <a href="#discussion">Discussion</a>
+  <a href="#author">Author</a>
+</nav>
+
+<!-- ═══ THESIS ═══ -->
+<section id="thesis">
+  <div>
+    <div class="section-label">The Core Argument</div>
+    <h2 class="section-title">You Are Not Broken. You Are Out of Rhythm.</h2>
+    <p class="section-intro">The book operates at the paradigm level. Not adjusting habits or adding protocols, but offering a different operating system altogether.</p>
+    <div class="thesis-block">
+      <p>We do not suffer from a lack of knowledge. We suffer from <span class="accent">rhythm collapse</span> — from fragmentation, disconnection, and incoherence. Most people don't reject inner work due to a lack of desire to grow. They reject it because it feels vague, unstructured, or disconnected from modern life.</p>
+      <br>
+      <p>This book bridges the gap between <span class="accent">science and spirit</span> — neuroscience and ancestral rhythm, adaptogens and emotional presence, detox protocols and prayer, brain optimization and ceremony. Not because it's trendy — but because that's what we are. Complex. Multidimensional. Electrical. Emotional. Ancestral. Human.</p>
+      <br>
+      <p>Callo's Way offers a structured intervention engaging every layer of human experience — cognitive, emotional, somatic, environmental, ancestral. At its core is <span class="accent">coherence</span>: a concrete state of alignment across life's multiple dimensions. Not as concept, but as pattern. Not as knowledge, but as home.</p>
+    </div>
+    <p class="thesis-signal">"You are not chasing rhythm — you're already creating it, breath by breath."</p>
+  </div>
+</section>
+
+<!-- ═══ FIVE PHASES ═══ -->
+<section id="phases">
+  <div class="section-label">The Architecture</div>
+  <h2 class="section-title">Five Phases of Coherence</h2>
+  <p class="section-intro">The book unfolds across five phases, each engaging a different layer of human experience. Together, they form a complete system.</p>
+
+  <div class="phases-grid">
+    <div class="phase-card" data-phase="awareness">
+      <div class="phase-number">01</div>
+      <div class="phase-name">Awareness</div>
+      <div class="phase-sub">Where consciousness meets biology, and perception begins to shape form</div>
+      <ul class="phase-chapters">
+        <li>Quantum Perception</li>
+        <li>Neuroplasticity & Epigenetics</li>
+        <li>The Nervous System & Safety</li>
+        <li>Trauma, Fluidity & Inner Coherence</li>
+      </ul>
+    </div>
+    <div class="phase-card" data-phase="regulation">
+      <div class="phase-number">02</div>
+      <div class="phase-name">Regulation</div>
+      <div class="phase-sub">Nourishing body, breath, and being</div>
+      <ul class="phase-chapters">
+        <li>Feeding the Mind</li>
+        <li>Gut–Brain Synergy</li>
+        <li>Breath, Movement & Stillness</li>
+        <li>Adaptogens & Vibrational Medicine</li>
+      </ul>
+    </div>
+    <div class="phase-card" data-phase="lineage">
+      <div class="phase-number">03</div>
+      <div class="phase-name">Lineage</div>
+      <div class="phase-sub">Honoring the living past</div>
+      <ul class="phase-chapters">
+        <li>Lineage and the Living Past</li>
+        <li>Ceremony & Communion</li>
+        <li>Dreamwork & Inner Mythology</li>
+      </ul>
+    </div>
+    <div class="phase-card" data-phase="environment">
+      <div class="phase-number">04</div>
+      <div class="phase-name">Environment</div>
+      <div class="phase-sub">Clearing external interference</div>
+      <ul class="phase-chapters">
+        <li>Circadian Wisdom</li>
+        <li>Toxins, Fields & Protective Rituals</li>
+        <li>Digital Nervous Systems</li>
+      </ul>
+    </div>
+    <div class="phase-card" data-phase="coherence">
+      <div class="phase-number">05</div>
+      <div class="phase-name">Coherence</div>
+      <div class="phase-sub">Designing your day, attuning to your signal, and embodying your field</div>
+      <ul class="phase-chapters">
+        <li>Meditation & Quantum Intent</li>
+        <li>Designing a Day of Empowerment</li>
+        <li>Alchemy as Practice</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CALLO CIRCUIT ═══ -->
+<section id="circuit">
+  <div>
+    <div class="section-label">Bonus</div>
+    <h2 class="section-title">The Callo Circuit</h2>
+    <p class="section-intro">A daily five-phase loop from the bonus chapter. Not a checklist. An energetic arc designed to structure your day around signal, not reaction.</p>
+
+    <div class="circuit-flow">
+      <div class="circuit-step">
+        <span class="circuit-icon">🔥</span>
+        <div class="circuit-name">Purge</div>
+        <div class="circuit-desc">Move. Sweat. Shake. Let the excess leave — stored emotion, digital overload, stagnation in the breath.</div>
+      </div>
+      <div class="circuit-step">
+        <span class="circuit-icon">🌬️</span>
+        <div class="circuit-name">Breathe</div>
+        <div class="circuit-desc">Drop in. Reset the tempo from within. Use breath, stillness, or coherence practices to recalibrate your field.</div>
+      </div>
+      <div class="circuit-step">
+        <span class="circuit-icon">🌿</span>
+        <div class="circuit-name">Anchor</div>
+        <div class="circuit-desc">Ground into nourishment, space, and physical presence. Eat with intention. Walk slowly. Touch the earth.</div>
+      </div>
+      <div class="circuit-step">
+        <span class="circuit-icon">🔨</span>
+        <div class="circuit-name">Construct</div>
+        <div class="circuit-desc">Create from coherence. Write. Lead. Design. Serve. Build from signal, not reaction.</div>
+      </div>
+      <div class="circuit-step">
+        <span class="circuit-icon">🌙</span>
+        <div class="circuit-name">Seal</div>
+        <div class="circuit-desc">Close the loop. End the day with breath, reflection, silence, or prayer. Hold what you've built.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PRACTICES ═══ -->
+<section id="practices">
+  <div class="section-label">Embodied Tools</div>
+  <h2 class="section-title">Guided Practices</h2>
+  <p class="section-intro">Each chapter closes with a hands-on practice. These are the core ones, pulled directly from the book.</p>
+
+  <div class="practices-list">
+    <!-- Signal Reset -->
+    <div class="practice-item">
+      <div class="practice-header" onclick="togglePractice(this)">
+        <div class="practice-header-left">
+          <div class="practice-phase-dot" style="background:var(--phase-awareness)"></div>
+          <span class="practice-title">Signal Reset</span>
+        </div>
+        <span class="practice-meta">5–7 min</span>
+        <span class="practice-toggle">+</span>
+      </div>
+      <div class="practice-body">
+        <div class="practice-body-inner">
+          <div class="practice-when">Use when: Fragmented, scattered, or emotionally reactive</div>
+          <ol class="practice-steps">
+            <li><strong>Ground —</strong> Stand or sit. Feel your feet or hips. Inhale slowly.</li>
+            <li><strong>Breathe Coherently —</strong> Inhale (5 counts) → Hold (2 counts) → Exhale (6 counts). Repeat for 3–5 cycles.</li>
+            <li><strong>Anchor —</strong> Place your palm on your chest or solar plexus. Whisper: "I'm here. I'm listening."</li>
+            <li><strong>Witness the Field —</strong> Notice tingles, breath shifts, posture changes. Let them happen. Let them speak. Don't interpret — just stay.</li>
+          </ol>
+          <div class="practice-affirmation">"I'm here. I'm listening."</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Neural Sculpting -->
+    <div class="practice-item">
+      <div class="practice-header" onclick="togglePractice(this)">
+        <div class="practice-header-left">
+          <div class="practice-phase-dot" style="background:var(--phase-awareness)"></div>
+          <span class="practice-title">Neural Sculpting</span>
+        </div>
+        <span class="practice-meta">5–10 min</span>
+        <span class="practice-toggle">+</span>
+      </div>
+      <div class="practice-body">
+        <div class="practice-body-inner">
+          <div class="practice-when">Use when: Rewriting a belief, shifting a habit, or reclaiming possibility</div>
+          <ol class="practice-steps">
+            <li><strong>Presence —</strong> Sit upright. Breathe slowly. Place one hand on your chest, one on your belly.</li>
+            <li><strong>Name the Old Pattern —</strong> Whisper it: "I always tense here." "I collapse here." No shame — just clarity.</li>
+            <li><strong>Visualize the New Signal —</strong> Breathe into the version of you who doesn't collapse, who doesn't brace. Feel their posture, breath, voice. Embody it for 2–3 minutes.</li>
+            <li><strong>Anchor It —</strong> Touch your heart or tap your thigh. Repeat: "I'm re-patterning. This is safe now."</li>
+          </ol>
+          <div class="practice-affirmation">"This becomes my new default."</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Coherence Meditation Protocol -->
+    <div class="practice-item">
+      <div class="practice-header" onclick="togglePractice(this)">
+        <div class="practice-header-left">
+          <div class="practice-phase-dot" style="background:var(--phase-coherence)"></div>
+          <span class="practice-title">Coherence Meditation Protocol</span>
+        </div>
+        <span class="practice-meta">10–15 min</span>
+        <span class="practice-toggle">+</span>
+      </div>
+      <div class="practice-body">
+        <div class="practice-body-inner">
+          <div class="practice-when">Use when: Fragmented, reactive, or preparing to create something meaningful</div>
+          <ol class="practice-steps">
+            <li><strong>Still the Body —</strong> Sit upright but relaxed. Let your eyes soften or close.</li>
+            <li><strong>Coherent Breathing —</strong> Inhale through the nose (5 counts), exhale through mouth or nose (5–6 counts). Breathe into the area of the heart. Continue for 2–3 minutes.</li>
+            <li><strong>Emotional Elevation —</strong> Recall a moment of gratitude, love, awe, or peace. Let it grow. Stay with this feeling for 3–5 minutes.</li>
+            <li><strong>Direct the Signal —</strong> Introduce a simple intention: "I am available for clarity." "I radiate peace." Let the phrase ride the field.</li>
+            <li><strong>Integration —</strong> Sit in silence. Let your system absorb. Open your eyes slowly.</li>
+          </ol>
+          <div class="practice-affirmation">"Clear thought + elevated emotion + coherence = transformation."</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- The Alchemical Pause -->
+    <div class="practice-item">
+      <div class="practice-header" onclick="togglePractice(this)">
+        <div class="practice-header-left">
+          <div class="practice-phase-dot" style="background:var(--phase-coherence)"></div>
+          <span class="practice-title">The Alchemical Pause</span>
+        </div>
+        <span class="practice-meta">5–7 min</span>
+        <span class="practice-toggle">+</span>
+      </div>
+      <div class="practice-body">
+        <div class="practice-body-inner">
+          <div class="practice-when">Use when: Emotionally reactive, overwhelmed, or looped</div>
+          <ol class="practice-steps">
+            <li><strong>Recognize the Lead —</strong> Name what you're feeling — not to fix, but to hold. "This is tension." "This is grief." Say aloud: "I will not abandon myself here."</li>
+            <li><strong>Enter the Fire —</strong> Place one hand on your chest, one on your lower belly. Breathe into the space where the emotion lives. Exhale longer than you inhale. If you feel the urge to cry, shake, or sigh — let it happen.</li>
+            <li><strong>Witness the Change —</strong> Has the temperature shifted? Has the tightness softened? Say: "This is transmutation. I am safe here."</li>
+            <li><strong>Seal the Practice —</strong> Stand or sit tall. Visualize golden light surrounding your field. Whisper: "I now hold this differently."</li>
+          </ol>
+          <div class="practice-affirmation">"From this, I rise wiser."</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Day Design Check-In -->
+    <div class="practice-item">
+      <div class="practice-header" onclick="togglePractice(this)">
+        <div class="practice-header-left">
+          <div class="practice-phase-dot" style="background:var(--phase-environment)"></div>
+          <span class="practice-title">Day Design Check-In</span>
+        </div>
+        <span class="practice-meta">Weekly</span>
+        <span class="practice-toggle">+</span>
+      </div>
+      <div class="practice-body">
+        <div class="practice-body-inner">
+          <div class="practice-when">Frequency: Once weekly (Sunday evening)</div>
+          <ol class="practice-steps">
+            <li><strong>Reflect —</strong> When during the week did I feel most aligned? When did I feel most dysregulated?</li>
+            <li><strong>Adjust —</strong> What sacred "bookends" can I commit to? Which transitions need more ritual?</li>
+            <li><strong>Reset —</strong> Write a single word for your next week's anchor: "Clarity." "Softness." "Pace." Let that word become the rhythm-setter.</li>
+          </ol>
+          <div class="practice-affirmation">"You don't need a plan. You need a pulse."</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Evening Integration -->
+    <div class="practice-item">
+      <div class="practice-header" onclick="togglePractice(this)">
+        <div class="practice-header-left">
+          <div class="practice-phase-dot" style="background:var(--phase-regulation)"></div>
+          <span class="practice-title">Evening Integration</span>
+        </div>
+        <span class="practice-meta">4–8 min</span>
+        <span class="practice-toggle">+</span>
+      </div>
+      <div class="practice-body">
+        <div class="practice-body-inner">
+          <div class="practice-when">Purpose: Downshift from stimulation and close your day in coherence</div>
+          <ol class="practice-steps">
+            <li><strong>Settle —</strong> Lie down or sit in stillness. Turn off all tech; use candlelight or darkness.</li>
+            <li><strong>Connect —</strong> Place one hand on your belly, one on your heart. Inhale slowly… Exhale like you're softening the whole day.</li>
+            <li><strong>Reflect —</strong> "What did I release today?" "What did I reclaim?"</li>
+            <li><strong>Hum —</strong> Optional: hum gently on the exhale. Let silence finish the session.</li>
+          </ol>
+          <div class="practice-affirmation">"Breath is not a technique. It's a return."</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SIGNAL CHECK ═══ -->
+<section id="signal-check">
+  <div>
+    <div class="section-label">Self-Assessment</div>
+    <h2 class="section-title">Coherence Signal Check</h2>
+    <p class="section-intro">Eight questions. No scores to chase. Just an honest read on where you stand today.</p>
+
+    <div id="signal-questions">
+      <div class="signal-question" data-q="0">
+        <div class="sq-text">When I wake up, my first instinct is to…</div>
+        <div class="sq-options">
+          <div class="sq-option" data-val="3" onclick="selectOption(this)">Breathe or stretch</div>
+          <div class="sq-option" data-val="2" onclick="selectOption(this)">Lie still and ease in</div>
+          <div class="sq-option" data-val="1" onclick="selectOption(this)">Check my phone</div>
+          <div class="sq-option" data-val="0" onclick="selectOption(this)">Already anxious</div>
+        </div>
+      </div>
+      <div class="signal-question" data-q="1">
+        <div class="sq-text">How often do I pause to breathe intentionally during my day?</div>
+        <div class="sq-options">
+          <div class="sq-option" data-val="3" onclick="selectOption(this)">Multiple times — it's built in</div>
+          <div class="sq-option" data-val="2" onclick="selectOption(this)">Once or twice</div>
+          <div class="sq-option" data-val="1" onclick="selectOption(this)">Rarely unless stressed</div>
+          <div class="sq-option" data-val="0" onclick="selectOption(this)">Almost never</div>
+        </div>
+      </div>
+      <div class="signal-question" data-q="2">
+        <div class="sq-text">My relationship with food this week has been…</div>
+        <div class="sq-options">
+          <div class="sq-option" data-val="3" onclick="selectOption(this)">Nourishing and intentional</div>
+          <div class="sq-option" data-val="2" onclick="selectOption(this)">Mostly mindful</div>
+          <div class="sq-option" data-val="1" onclick="selectOption(this)">Rushed or reactive</div>
+          <div class="sq-option" data-val="0" onclick="selectOption(this)">Survival mode</div>
+        </div>
+      </div>
+      <div class="signal-question" data-q="3">
+        <div class="sq-text">When I encounter stress, my body tends to…</div>
+        <div class="sq-options">
+          <div class="sq-option" data-val="3" onclick="selectOption(this)">Soften and breathe</div>
+          <div class="sq-option" data-val="2" onclick="selectOption(this)">Notice, then regulate</div>
+          <div class="sq-option" data-val="1" onclick="selectOption(this)">Brace and push through</div>
+          <div class="sq-option" data-val="0" onclick="selectOption(this)">Freeze or spiral</div>
+        </div>
+      </div>
+      <div class="signal-question" data-q="4">
+        <div class="sq-text">How connected do I feel to something larger — ancestors, nature, spirit, or community?</div>
+        <div class="sq-options">
+          <div class="sq-option" data-val="3" onclick="selectOption(this)">Deeply and regularly</div>
+          <div class="sq-option" data-val="2" onclick="selectOption(this)">Occasionally grounded</div>
+          <div class="sq-option" data-val="1" onclick="selectOption(this)">I feel isolated more than not</div>
+          <div class="sq-option" data-val="0" onclick="selectOption(this)">Disconnected</div>
+        </div>
+      </div>
+      <div class="signal-question" data-q="5">
+        <div class="sq-text">My screen time in the evening…</div>
+        <div class="sq-options">
+          <div class="sq-option" data-val="3" onclick="selectOption(this)">Winds down well before bed</div>
+          <div class="sq-option" data-val="2" onclick="selectOption(this)">I limit it somewhat</div>
+          <div class="sq-option" data-val="1" onclick="selectOption(this)">Goes until I fall asleep</div>
+          <div class="sq-option" data-val="0" onclick="selectOption(this)">I can't stop scrolling</div>
+        </div>
+      </div>
+      <div class="signal-question" data-q="6">
+        <div class="sq-text">The last time I felt truly still — in body and mind — was…</div>
+        <div class="sq-options">
+          <div class="sq-option" data-val="3" onclick="selectOption(this)">Today or yesterday</div>
+          <div class="sq-option" data-val="2" onclick="selectOption(this)">This week</div>
+          <div class="sq-option" data-val="1" onclick="selectOption(this)">I can't remember</div>
+          <div class="sq-option" data-val="0" onclick="selectOption(this)">Stillness feels impossible</div>
+        </div>
+      </div>
+      <div class="signal-question" data-q="7">
+        <div class="sq-text">If I described my overall state right now in one word, it would be…</div>
+        <div class="sq-options">
+          <div class="sq-option" data-val="3" onclick="selectOption(this)">Coherent</div>
+          <div class="sq-option" data-val="2" onclick="selectOption(this)">Seeking</div>
+          <div class="sq-option" data-val="1" onclick="selectOption(this)">Fragmented</div>
+          <div class="sq-option" data-val="0" onclick="selectOption(this)">Exhausted</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="signal-submit">
+      <button class="btn btn-primary" onclick="showSignalResult()" id="signal-btn" style="opacity:0.4;pointer-events:none;">Read My Signal</button>
+    </div>
+
+    <div class="signal-result" id="signal-result"></div>
+  </div>
+</section>
+
+<!-- ═══ DISCUSSION ═══ -->
+<section id="discussion">
+  <div class="section-label">Book Club & Reflection</div>
+  <h2 class="section-title">Discussion Guide</h2>
+  <p class="section-intro">For book clubs, reading groups, or your own journal. Organized by the five phases.</p>
+
+  <div class="discussion-part">
+    <div class="discussion-header" onclick="toggleDiscussion(this)">
+      <span class="discussion-part-title">Part I — Awareness (Chapters 1–4)</span>
+      <span class="discussion-toggle">+</span>
+    </div>
+    <div class="discussion-body">
+      <div class="discussion-body-inner">
+        <ol>
+          <li>The book argues that perception is creative, not passive. How does this reframe your understanding of daily attention?</li>
+          <li>What "old pattern" (from the Neural Sculpting practice) resonated most with you? Where in your body do you feel it?</li>
+          <li>How does the idea that your nervous system decides safety before your conscious mind challenge how you approach stress?</li>
+          <li>The book references intergenerational epigenetic trauma. What patterns in your family line might you be carrying — and what might you be healing?</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <div class="discussion-part">
+    <div class="discussion-header" onclick="toggleDiscussion(this)">
+      <span class="discussion-part-title">Part II — Regulation (Chapters 5–8)</span>
+      <span class="discussion-toggle">+</span>
+    </div>
+    <div class="discussion-body">
+      <div class="discussion-body-inner">
+        <ol>
+          <li>What's your current relationship with food — is it nourishment, transaction, or something else? How could ritual change that?</li>
+          <li>The gut–brain axis suggests your microbiome shapes your mood. Has anything you've eaten recently noticeably shifted your emotional state?</li>
+          <li>Which resonates more with you right now — movement, breath, or stillness? Why do you think that is?</li>
+          <li>Have you ever used adaptogens or herbs intentionally? What was your experience with trusting plant-based support?</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <div class="discussion-part">
+    <div class="discussion-header" onclick="toggleDiscussion(this)">
+      <span class="discussion-part-title">Part III — Lineage (Chapters 9–11)</span>
+      <span class="discussion-toggle">+</span>
+    </div>
+    <div class="discussion-body">
+      <div class="discussion-body-inner">
+        <ol>
+          <li>What does "lineage" mean to you — biologically, culturally, or spiritually? Is it something you actively engage with?</li>
+          <li>The book describes ceremony as recalibration, not luxury. What rituals — formal or informal — help you feel most connected?</li>
+          <li>Have your dreams ever carried messages or patterns that felt ancestral or archetypal? How did you respond?</li>
+          <li>What would it mean to "carry the name" in your own context — to anchor a lineage forward with intention?</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <div class="discussion-part">
+    <div class="discussion-header" onclick="toggleDiscussion(this)">
+      <span class="discussion-part-title">Part IV — Environment (Chapters 12–14)</span>
+      <span class="discussion-toggle">+</span>
+    </div>
+    <div class="discussion-body">
+      <div class="discussion-body-inner">
+        <ol>
+          <li>How aligned is your daily schedule with your natural circadian rhythm? What's the biggest disconnect?</li>
+          <li>The chapter on digital nervous systems argues that your attention is not a commodity. What would reclaiming your digital presence look like?</li>
+          <li>Have you ever noticed a shift in your energy, mood, or clarity after changing something in your physical environment?</li>
+          <li>What does "energetic hygiene" mean to you in practice — and does it feel accessible or foreign?</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <div class="discussion-part">
+    <div class="discussion-header" onclick="toggleDiscussion(this)">
+      <span class="discussion-part-title">Part V — Coherence (Chapters 15–17)</span>
+      <span class="discussion-toggle">+</span>
+    </div>
+    <div class="discussion-body">
+      <div class="discussion-body-inner">
+        <ol>
+          <li>The book defines coherence as brainwaves, heart rhythms, breath cycles, and emotional tone moving in synchrony. When was the last time you felt that alignment?</li>
+          <li>What does "designing a day of empowerment" look like for your actual life — not an ideal one?</li>
+          <li>Alchemy as Practice reframes emotional pain as transmutation material. Which emotion are you currently being asked to transform?</li>
+          <li>The conclusion says "your presence becomes medicine." Do you believe your internal state affects those around you? How have you seen it?</li>
+          <li>After reading, what single shift — in breath, attention, or ritual — are you most compelled to try?</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ AUTHOR ═══ -->
+<section id="author">
+  <div>
+    <div class="section-label">About the Author</div>
+    <h2 class="section-title">Daniel D. Calloway III</h2>
+    <div class="author-bio">
+      <p>Daniel D. Calloway III is an attorney, researcher, and member of the Narragansett Indian Tribe. With over fifteen years in legal, regulatory, and compliance work across financial services, technology, and private equity, he brings a practitioner's discipline to the study of human coherence.</p>
+      <br>
+      <p><em>Callo's Way: The Art of Conscious Empowerment</em> is the first volume of the Callo's Way Coherence Series, published by Dando, LLC. His second book, <em>The Dependency Design: How Synthetic Intimacy Replaced Human Bonding</em>, examines technology's displacement of authentic human connection.</p>
+    </div>
+    <div class="author-links">
+      <a href="https://dandollc.github.io" target="_blank" rel="noopener">Personal Site</a>
+      <a href="https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=7682344" target="_blank" rel="noopener">SSRN</a>
+      <a href="https://www.linkedin.com/in/callowayesq" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://a.co/d/0cH8SsNl" target="_blank" rel="noopener">Amazon</a>
+      <a href="https://callosway.gumroad.com/l/uqqcu" target="_blank" rel="noopener">Gumroad</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <p>© 2025 <a href="https://dandollc.github.io" target="_blank" rel="noopener">Dando, LLC</a>. All rights reserved.</p>
+  <p style="margin-top:0.5rem; font-style:italic; opacity:0.6;">Lineage in Service. Ideas Made Manifest.</p>
+</footer>
+
+<!-- Breathing indicator -->
+<div class="breath-indicator"></div>
+
+<script>
+// Practice accordion
+function togglePractice(header) {
+  const item = header.parentElement;
+  const body = item.querySelector('.practice-body');
+  if (item.classList.contains('open')) {
+    item.classList.remove('open');
+    body.style.maxHeight = '0';
+  } else {
+    document.querySelectorAll('.practice-item.open').forEach(el => {
+      el.classList.remove('open');
+      el.querySelector('.practice-body').style.maxHeight = '0';
+    });
+    item.classList.add('open');
+    body.style.maxHeight = body.scrollHeight + 'px';
+  }
+}
+
+// Discussion accordion
+function toggleDiscussion(header) {
+  const part = header.parentElement;
+  const body = part.querySelector('.discussion-body');
+  if (part.classList.contains('open')) {
+    part.classList.remove('open');
+    body.style.maxHeight = '0';
+  } else {
+    part.classList.add('open');
+    body.style.maxHeight = body.scrollHeight + 'px';
+  }
+}
+
+// Signal Check
+const answers = {};
+const totalQs = 8;
+
+function selectOption(el) {
+  const q = el.closest('.signal-question');
+  const qIdx = q.dataset.q;
+  q.querySelectorAll('.sq-option').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  answers[qIdx] = parseInt(el.dataset.val);
+
+  if (Object.keys(answers).length === totalQs) {
+    const btn = document.getElementById('signal-btn');
+    btn.style.opacity = '1';
+    btn.style.pointerEvents = 'auto';
+  }
+}
+
+function showSignalResult() {
+  const total = Object.values(answers).reduce((a, b) => a + b, 0);
+  const max = totalQs * 3;
+  const pct = total / max;
+  const resultDiv = document.getElementById('signal-result');
+  let label, title, body, practice;
+
+  if (pct >= 0.75) {
+    label = 'Signal: Strong';
+    title = 'Coherent';
+    body = 'You\'re already living with intention. The practices in this book will sharpen what you\'ve built and give you language for what you\'re doing instinctively. Your next step is depth, not breadth.';
+    practice = '<strong>Suggested Practice:</strong> Coherence Meditation Protocol (Chapter 15) — work the quantum intent layer.';
+  } else if (pct >= 0.5) {
+    label = 'Signal: Emerging';
+    title = 'Seeking';
+    body = 'The awareness is there. The consistency isn\'t — yet. Focus on bookending your days. One morning ritual. One evening seal. Let the rest follow naturally.';
+    practice = '<strong>Suggested Practice:</strong> Day Design Check-In (Chapter 16) — weekly reflection to find where your rhythm holds and where it leaks.';
+  } else if (pct >= 0.25) {
+    label = 'Signal: Fragmented';
+    title = 'Recalibrating';
+    body = 'You\'re running on survival patterns — reactive, screen-heavy, disconnected from your body\'s natural timing. Most people start here. Begin with breath. Five counts in, six counts out. That\'s the door back in.';
+    practice = '<strong>Suggested Practice:</strong> Signal Reset (Chapter 1) — five minutes, every morning, for one week.';
+  } else {
+    label = 'Signal: Static';
+    title = 'Time for a Reset';
+    body = 'You\'re carrying more than you need to. The exhaustion, the scrolling, the bracing — those aren\'t failures. They\'re signals. Start with one thing: put your hand on your chest. Breathe. Say, "I\'m here."';
+    practice = '<strong>Suggested Practice:</strong> The Alchemical Pause (Chapter 17) — built for moments of overwhelm.';
+  }
+
+  resultDiv.innerHTML = `
+    <div class="result-label">${label}</div>
+    <div class="result-title">${title}</div>
+    <div class="result-body">${body}</div>
+    <div class="result-practice">${practice}</div>
+  `;
+  resultDiv.classList.add('visible');
+  resultDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+</script>
+
+</body>
+</html>
