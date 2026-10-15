@@ -2,20 +2,25 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Callo's Way — The Art of Conscious Empowerment</title>
 <meta name="description" content="Companion site for Callo's Way: The Art of Conscious Empowerment by Daniel D. Calloway III. Practices, the Callo Circuit, and discussion guide.">
 <link rel="canonical" href="https://dandollc.github.io/callosway/">
+<meta name="theme-color" content="#121113">
 <meta property="og:type" content="book">
 <meta property="og:title" content="Callo's Way: The Art of Conscious Empowerment">
 <meta property="og:description" content="Guided practices, the Callo Circuit, a Coherence Signal Check and a discussion guide for Callo's Way by Daniel D. Calloway III.">
 <meta property="og:url" content="https://dandollc.github.io/callosway/">
-<meta property="og:image" content="https://dandollc.github.io/callosway/dando-logo.png">
+<meta property="og:image" content="https://dandollc.github.io/callosway/dando-mark-on-light.png">
 <meta name="twitter:card" content="summary">
+<link rel="icon" type="image/png" href="dando-mark-on-light.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Nunito+Sans:wght@300;400;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Libre+Franklin:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js');</script>
 <style>
 :root {
+  /* Callo's Way earth palette (unchanged from the original site) */
   --earth: #2C1810;
   --clay: #6B3A2A;
   --amber: #C47D2B;
@@ -32,1262 +37,930 @@
   --phase-lineage: #B8763C;
   --phase-environment: #5A8BA0;
   --phase-coherence: #D4A54A;
+
+  /* Text-safe variants of the phase colors on cream (all >= 4.5:1) */
+  --phase-awareness-ink: #66579A;
+  --phase-regulation-ink: #3F7A5F;
+  --phase-lineage-ink: #9C6230;
+  --phase-environment-ink: #42708A;
+  --phase-coherence-ink: #8A6A1E;
+
+  /* Page tokens */
+  --bg: var(--warm-white);
+  --surface: var(--cream);
+  --fg: var(--earth);
+  --muted: #5E4B3F;
+  --line: rgba(44,24,16,0.12);
+  --line-strong: #8C7660;
+  --accent: var(--gold);
+  --accent-ink: #8A5A1C;
+  --earth-deep: #1F120C;
+  --on-dark-muted: #B8A486;
+
+  /* Shared ecosystem tokens */
+  --eco-ink: #121113;
+  --eco-ink-2: #1c1a1d;
+  --eco-silver: #c9c6c0;
+  --eco-silver-dim: #9a968f;
+  --eco-gold: #c19a45;
+  --eco-gold-bright: #dcbd6e;
+  --eco-gold-ink: #7a5f22;
+  --f-display: 'Cormorant Garamond', 'Iowan Old Style', Georgia, serif;
+  --f-body: 'Libre Franklin', 'Helvetica Neue', Arial, sans-serif;
+  --f-mono: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+  --f-accent: 'DM Serif Display', 'Iowan Old Style', Georgia, serif;
+
+  --gutter: max(16px, env(safe-area-inset-left));
+  --gutter-r: max(16px, env(safe-area-inset-right));
+  --header-h: 60px;
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.17 0 0 0 0 0.09 0 0 0 0 0.06 0 0 0 .045 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; }
+html { -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
 
 body {
-  font-family: 'Nunito Sans', sans-serif;
-  background: var(--warm-white);
-  color: var(--earth);
-  font-weight: 300;
-  line-height: 1.7;
-  overflow-x: hidden;
-}
-
-/* ═══ HERO ═══ */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  position: relative;
-  background: linear-gradient(160deg, var(--earth) 0%, #1A0F0A 40%, #2A1A12 100%);
-  overflow: hidden;
-}
-
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 600px 600px at 20% 30%, rgba(196,125,43,0.08) 0%, transparent 70%),
-    radial-gradient(ellipse 500px 500px at 80% 70%, rgba(90,107,78,0.06) 0%, transparent 70%);
-  pointer-events: none;
-}
-
-/* Animated concentric rings — representing rhythm/signal */
-.signal-rings {
-  position: absolute;
-  width: 600px;
-  height: 600px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-}
-
-.signal-rings .ring {
-  position: absolute;
-  border: 1px solid rgba(212,165,74,0.08);
-  border-radius: 50%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  animation: pulse-ring 8s ease-in-out infinite;
-}
-
-.signal-rings .ring:nth-child(1) { width: 200px; height: 200px; animation-delay: 0s; }
-.signal-rings .ring:nth-child(2) { width: 320px; height: 320px; animation-delay: 1.5s; }
-.signal-rings .ring:nth-child(3) { width: 440px; height: 440px; animation-delay: 3s; }
-.signal-rings .ring:nth-child(4) { width: 560px; height: 560px; animation-delay: 4.5s; }
-
-@keyframes pulse-ring {
-  0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
-  50% { opacity: 0.7; transform: translate(-50%, -50%) scale(1.05); }
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  padding: 2rem;
-  max-width: 720px;
-}
-
-.hero-logo {
-  width: 80px;
-  height: auto;
-  margin-bottom: 1.5rem;
-  opacity: 0;
-  animation: fadeUp 1s 0.1s forwards;
-}
-
-.hero-subtitle-top {
-  font-family: 'Nunito Sans', sans-serif;
-  font-weight: 300;
-  font-size: 0.8rem;
-  letter-spacing: 0.35em;
-  text-transform: uppercase;
-  color: var(--gold);
-  opacity: 0;
-  animation: fadeUp 1s 0.3s forwards;
-  margin-bottom: 1.5rem;
-}
-
-.hero-title {
-  font-family: 'DM Serif Display', serif;
-  font-size: clamp(3rem, 7vw, 5.5rem);
-  color: var(--cream);
-  line-height: 1.1;
+  font-family: var(--f-body);
+  font-size: 1rem;
   font-weight: 400;
-  opacity: 0;
-  animation: fadeUp 1s 0.6s forwards;
+  line-height: 1.65;
+  color: var(--fg);
+  background-color: var(--bg);
+  background-image: var(--grain);
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
 }
 
-.hero-title em {
-  font-style: italic;
-  color: var(--gold);
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+h1, h2, h3 { text-wrap: balance; font-weight: 500; }
+p, li { text-wrap: pretty; }
+
+:focus-visible { outline: 2px solid var(--accent-ink); outline-offset: 3px; border-radius: 2px; }
+.on-dark :focus-visible, .eco-strip :focus-visible, .eco-header :focus-visible, .eco-footer :focus-visible { outline-color: var(--eco-gold-bright); }
+
+.visually-hidden {
+  position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
 }
 
-.hero-tagline {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1.15rem, 2.5vw, 1.5rem);
-  color: var(--sand);
-  font-weight: 300;
-  font-style: italic;
-  margin-top: 1.2rem;
-  opacity: 0;
-  animation: fadeUp 1s 0.9s forwards;
+/* ═══ SKIP LINK ═══ */
+.skip-link {
+  position: absolute; left: 8px; top: -100px; z-index: 100;
+  background: var(--eco-gold-bright); color: var(--eco-ink);
+  padding: 0.75rem 1rem; min-height: 44px; font: 600 0.875rem var(--f-body); text-decoration: none; border-radius: 2px;
+}
+.skip-link:focus { top: 8px; }
+
+/* ═══ ECOSYSTEM STRIP ═══ */
+.eco-strip {
+  background: var(--eco-ink);
+  border-bottom: 1px solid rgba(193,154,69,.18);
+}
+.eco-strip-inner {
+  display: flex; gap: 1.5rem; align-items: center;
+  min-height: 36px;
+  max-width: 1200px; margin: 0 auto;
+  padding: 0 var(--gutter-r) 0 var(--gutter);
+  overflow-x: auto; scrollbar-width: none;
+  white-space: nowrap;
+}
+.eco-strip-inner::-webkit-scrollbar { display: none; }
+.eco-strip a {
+  font-family: var(--f-body); font-size: 0.75rem; letter-spacing: .04em;
+  color: var(--eco-silver-dim); text-decoration: none;
+  display: inline-flex; align-items: center; min-height: 36px;
+}
+.eco-strip a:hover { color: var(--eco-silver); }
+.eco-strip a[aria-current="page"] { color: var(--eco-gold-bright); }
+
+/* ═══ SITE HEADER ═══ */
+.eco-header {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50;
+  background: rgba(18,17,19,.94);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(193,154,69,.18);
+}
+.eco-header-inner {
+  position: relative;
+  display: flex; align-items: center; gap: 0.75rem;
+  max-width: 1200px; margin: 0 auto; min-height: var(--header-h);
+  padding: 0 var(--gutter-r) 0 var(--gutter);
+}
+.eco-brand {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  text-decoration: none; color: var(--eco-silver); margin-right: auto; min-height: 44px; flex-shrink: 0;
+}
+.eco-brand img { width: 33px; height: 34px; }
+.eco-brand-name {
+  font-family: var(--f-display); font-size: 1.375rem; font-weight: 500; letter-spacing: .01em; line-height: 1;
+  white-space: nowrap;
+}
+.eco-nav { display: flex; align-items: center; gap: 1.6rem; }
+.eco-nav a {
+  font-family: var(--f-body); font-size: 0.72rem; font-weight: 500;
+  letter-spacing: .16em; text-transform: uppercase;
+  color: var(--eco-silver); text-decoration: none;
+  display: inline-flex; align-items: center; min-height: 44px;
+}
+.eco-nav a:hover { color: var(--eco-gold-bright); }
+.eco-nav .eco-nav-cta { display: none; }
+.eco-cta {
+  display: inline-flex; align-items: center; justify-content: center; min-height: 44px; flex-shrink: 0;
+  padding: 0 1rem; margin-left: 0.75rem;
+  font-family: var(--f-body); font-size: 0.72rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--eco-ink); background: var(--eco-gold-bright); text-decoration: none; border-radius: 2px;
+  white-space: nowrap;
+}
+.eco-cta:hover { background: var(--gold); }
+.eco-menu-btn {
+  display: none;
+  min-height: 44px; min-width: 64px; padding: 0 0.75rem;
+  font-family: var(--f-body); font-size: 0.72rem; font-weight: 500; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--eco-silver); background: transparent;
+  border: 1px solid rgba(201,198,192,.35); border-radius: 2px; cursor: pointer;
+}
+.eco-menu-btn:hover { border-color: var(--eco-gold-bright); color: var(--eco-gold-bright); }
+
+@media (max-width: 900px) {
+  .eco-menu-btn { display: inline-flex; align-items: center; justify-content: center; }
+  .eco-cta { margin-left: 0; }
+  .js .eco-nav { display: none; }
+  .eco-nav {
+    position: absolute; top: 100%; left: 0; right: 0;
+    flex-direction: column; align-items: stretch; gap: 0;
+    background: var(--eco-ink); border-bottom: 1px solid rgba(193,154,69,.18);
+    padding: 0.5rem var(--gutter-r) 1rem var(--gutter);
+    max-height: calc(100vh - var(--header-h)); overflow-y: auto;
+  }
+  .js .eco-nav.is-open { display: flex; }
+  .eco-nav a { min-height: 48px; font-size: 0.8rem; border-bottom: 1px solid rgba(201,198,192,.1); }
+  html:not(.js) .eco-nav { position: static; flex-direction: row; flex-wrap: wrap; gap: 0 1.2rem; padding: 0; border: 0; background: transparent; }
+  html:not(.js) .eco-nav a { border-bottom: 0; }
+  html:not(.js) .eco-header-inner { flex-wrap: wrap; }
+  html:not(.js) .eco-menu-btn { display: none; }
+}
+@media (max-width: 480px) {
+  .eco-header-inner { gap: 0.5rem; }
+  .eco-cta { padding: 0 0.7rem; letter-spacing: .08em; }
+  .eco-menu-btn { min-width: 56px; padding: 0 0.6rem; letter-spacing: .1em; }
+}
+@media (max-width: 379px) {
+  .eco-cta { display: none; }
+  .eco-nav .eco-nav-cta { display: inline-flex; color: var(--eco-gold-bright); border-bottom: 0; }
+  .eco-brand-name { font-size: 1.25rem; }
 }
 
-.hero-author {
-  font-family: 'Nunito Sans', sans-serif;
-  font-size: 0.85rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: rgba(232,213,183,0.5);
-  margin-top: 2.5rem;
-  opacity: 0;
-  animation: fadeUp 1s 1.2s forwards;
-}
-
-.hero-cta {
-  margin-top: 3rem;
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
-  opacity: 0;
-  animation: fadeUp 1s 1.5s forwards;
-}
-
-.btn {
-  display: inline-block;
-  padding: 0.85rem 2rem;
-  font-family: 'Nunito Sans', sans-serif;
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  text-decoration: none;
-  border-radius: 2px;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  border: none;
-}
-
-.btn-primary {
-  background: var(--gold);
-  color: var(--earth);
-}
-
-.btn-primary:hover {
-  background: var(--amber);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 20px rgba(212,165,74,0.3);
-}
-
-.btn-ghost {
-  background: transparent;
-  color: var(--sand);
-  border: 1px solid rgba(232,213,183,0.3);
-}
-
-.btn-ghost:hover {
-  border-color: var(--gold);
-  color: var(--gold);
-}
-
-.scroll-hint {
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  color: rgba(232,213,183,0.3);
-  font-size: 0.7rem;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  animation: breathe 4s ease-in-out infinite;
-}
-
-@keyframes breathe {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 0.7; }
-}
-
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* ═══ NAV ═══ */
-.nav {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(254,252,247,0.92);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(44,24,16,0.06);
-  padding: 0.8rem 2rem;
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-}
-
-.nav a {
-  font-family: 'Nunito Sans', sans-serif;
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: var(--clay);
-  transition: color 0.3s;
-  padding: 0.3rem 0;
-}
-
-.nav a:hover { color: var(--gold); }
-
-/* ═══ SECTIONS ═══ */
-section {
-  padding: 5rem 2rem;
-  max-width: 960px;
-  margin: 0 auto;
+/* ═══ LAYOUT ═══ */
+main:focus { outline: none; }
+main section { scroll-margin-top: calc(var(--header-h) + 8px); }
+.wrap { max-width: 1040px; margin: 0 auto; padding: 0 var(--gutter-r) 0 var(--gutter); }
+.wrap-narrow { max-width: 760px; margin: 0 auto; padding: 0 var(--gutter-r) 0 var(--gutter); }
+.band { padding: clamp(3.5rem, 8vw, 6rem) 0; }
+.band-cream { background-color: var(--surface); background-image: var(--grain); }
+.band-earth {
+  background: linear-gradient(170deg, var(--earth) 0%, var(--earth-deep) 100%);
+  color: var(--cream);
 }
 
 .section-label {
-  font-family: 'Nunito Sans', sans-serif;
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--amber);
-  margin-bottom: 0.8rem;
+  font-family: var(--f-body); font-size: 0.72rem; font-weight: 500;
+  letter-spacing: .2em; text-transform: uppercase;
+  color: var(--accent-ink); margin-bottom: 0.9rem;
+  display: flex; align-items: center; gap: 0.75rem;
 }
+.section-label::before { content: ''; width: 28px; height: 1px; background: currentColor; opacity: .6; }
+.band-earth .section-label { color: var(--gold); }
 
 .section-title {
-  font-family: 'DM Serif Display', serif;
-  font-size: clamp(2rem, 4vw, 2.8rem);
-  color: var(--earth);
-  line-height: 1.2;
-  margin-bottom: 1rem;
+  font-family: var(--f-display); font-weight: 500;
+  font-size: clamp(2.1rem, 5vw, 2.75rem); line-height: 1.12; letter-spacing: -0.005em;
+  color: var(--fg); margin-bottom: 1rem;
 }
+.band-earth .section-title { color: var(--cream); }
 
 .section-intro {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.2rem;
-  color: var(--slate);
-  font-weight: 300;
-  font-style: italic;
-  max-width: 680px;
-  margin-bottom: 3rem;
+  font-family: var(--f-display); font-style: italic; font-weight: 400;
+  font-size: clamp(1.2rem, 2.4vw, 1.375rem); line-height: 1.55;
+  color: var(--muted); max-width: 62ch; margin-bottom: 2.5rem;
+}
+.band-earth .section-intro { color: var(--sand); }
+
+.mono { font-family: var(--f-mono); font-size: 0.75rem; letter-spacing: .02em; }
+
+/* ═══ BUTTONS ═══ */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+  min-height: 48px; padding: 0.8rem 1.5rem;
+  font-family: var(--f-body); font-size: 0.78rem; font-weight: 600;
+  letter-spacing: .14em; text-transform: uppercase; text-decoration: none;
+  border-radius: 2px; border: 1px solid transparent; cursor: pointer;
+  transition: background-color .25s, border-color .25s, color .25s;
+}
+.btn-primary { background: var(--gold); color: var(--earth); border-color: var(--gold); }
+.btn-primary:hover { background: #E2B860; border-color: #E2B860; }
+.btn-ghost { background: transparent; color: var(--sand); border-color: rgba(232,213,183,.4); }
+.btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+.btn-earth { background: var(--earth); color: var(--cream); border-color: var(--earth); }
+.btn-earth:hover:not(:disabled) { background: var(--clay); border-color: var(--clay); }
+.btn:disabled { opacity: .42; cursor: not-allowed; }
+
+/* ═══ HERO ═══ */
+.hero {
+  position: relative; overflow: hidden;
+  background: linear-gradient(160deg, var(--earth) 0%, #1A0F0A 45%, #2A1A12 100%);
+  color: var(--cream);
+  padding: clamp(3.5rem, 9vw, 6.5rem) 0 clamp(3.5rem, 8vw, 6rem);
+}
+.hero::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(ellipse 520px 520px at 12% 20%, rgba(196,125,43,0.10) 0%, transparent 70%),
+    radial-gradient(ellipse 480px 480px at 88% 80%, rgba(90,107,78,0.08) 0%, transparent 70%);
+}
+.hero-grid {
+  position: relative; z-index: 1;
+  display: grid; gap: 2.5rem; align-items: center;
+}
+.hero-series {
+  font-family: var(--f-body); font-size: 0.72rem; font-weight: 500;
+  letter-spacing: .2em; text-transform: uppercase; color: var(--gold);
+  margin-bottom: 1.25rem;
+}
+.hero-series .mono { letter-spacing: .08em; text-transform: none; color: var(--on-dark-muted); margin-left: 0.4rem; }
+.hero-title {
+  font-family: var(--f-display); font-weight: 500;
+  font-size: clamp(2.75rem, 6vw, 4.75rem); line-height: 1.02; letter-spacing: -0.01em;
+  color: var(--cream);
+}
+.hero-title em { font-style: italic; font-weight: 400; color: var(--gold); }
+.hero-tagline {
+  font-family: var(--f-display); font-style: italic; font-weight: 400;
+  font-size: clamp(1.3rem, 2.8vw, 1.65rem); line-height: 1.35;
+  color: var(--sand); margin-top: 1rem; max-width: 30ch;
+}
+.hero-author {
+  font-family: var(--f-body); font-size: 0.8rem; font-weight: 500;
+  letter-spacing: .2em; text-transform: uppercase; color: var(--on-dark-muted);
+  margin-top: 1.75rem;
+}
+.hero-actions { margin-top: 2.25rem; display: grid; gap: 0.75rem; }
+.hero-actions .btn { width: 100%; }
+.hero-actions-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 0.75rem; }
+.hero-actions-row .btn { padding-left: 0.75rem; padding-right: 0.75rem; letter-spacing: .1em; white-space: nowrap; }
+
+/* Breath guide: one restrained animation, paced to the Signal Reset (5 in, 2 hold, 6 out) */
+.breath { display: flex; align-items: center; gap: 1rem; color: var(--on-dark-muted); }
+.breath-figure { position: relative; width: var(--b, 64px); height: var(--b, 64px); flex-shrink: 0; }
+.breath-figure span { position: absolute; inset: 0; border-radius: 50%; }
+.breath-figure .ring { border: 1px solid rgba(212,165,74,.22); }
+.breath-figure .ring-2 { inset: 18%; border-color: rgba(212,165,74,.16); }
+.breath-figure .ring-3 { inset: -14%; border-color: rgba(212,165,74,.10); }
+.breath-figure .core {
+  inset: 12%;
+  background: radial-gradient(circle, rgba(212,165,74,.55) 0%, rgba(212,165,74,.16) 55%, rgba(212,165,74,0) 72%);
+  transform: scale(.82);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .breath-figure .core { animation: breath-cycle 13s ease-in-out infinite; }
+}
+@keyframes breath-cycle {
+  0%    { transform: scale(.6);  opacity: .65; }
+  38.5% { transform: scale(1);   opacity: 1; }
+  53.8% { transform: scale(1);   opacity: 1; }
+  100%  { transform: scale(.6);  opacity: .65; }
+}
+.breath-caption { font-family: var(--f-mono); font-size: 0.75rem; line-height: 1.5; letter-spacing: .03em; }
+.breath-caption b { display: block; font-weight: 500; color: var(--sand); }
+.hero-breath { margin-top: 2.25rem; padding-top: 1.5rem; border-top: 1px solid rgba(232,213,183,.14); }
+
+@media (min-width: 560px) {
+  .hero-actions { grid-template-columns: auto auto auto; justify-content: start; }
+  .hero-actions-row { display: contents; }
+  .hero-actions .btn { width: auto; }
+}
+@media (min-width: 900px) {
+  .hero-grid { grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr); gap: 3rem; }
+  .hero-breath { margin: 0; padding: 0; border: 0; flex-direction: column; text-align: center; }
+  .hero-breath .breath-figure { --b: 240px; }
 }
 
 /* ═══ THESIS ═══ */
-#thesis {
-  background: linear-gradient(180deg, var(--warm-white) 0%, var(--cream) 100%);
-  max-width: 100%;
-  padding-bottom: 4rem;
-}
-
-#thesis > div {
-  max-width: 760px;
-  margin: 0 auto;
-}
-
 .thesis-block {
-  position: relative;
-  padding: 3rem;
+  margin-top: 0.5rem;
+  padding: clamp(1.5rem, 5vw, 2.75rem);
   background: var(--warm-white);
   border-left: 3px solid var(--gold);
-  margin-top: 2rem;
   border-radius: 0 4px 4px 0;
-  box-shadow: 0 2px 20px rgba(44,24,16,0.04);
+  box-shadow: 0 1px 2px rgba(44,24,16,.05), 0 8px 28px rgba(44,24,16,.05);
 }
-
 .thesis-block p {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.3rem;
-  line-height: 1.8;
-  color: var(--earth);
-  font-weight: 400;
+  font-family: var(--f-display); font-size: clamp(1.2rem, 2.6vw, 1.35rem); line-height: 1.7;
+  color: var(--earth); font-weight: 400;
 }
+.thesis-block p + p { margin-top: 1.25rem; }
+.thesis-block .accent { color: var(--accent-ink); font-weight: 600; }
 
-.thesis-block .accent {
-  color: var(--amber);
-  font-weight: 500;
-}
-
+/* The gold window: used once, around the pull quote */
 .thesis-signal {
-  text-align: center;
-  margin-top: 2.5rem;
-  font-family: 'DM Serif Display', serif;
-  font-size: 1.4rem;
-  color: var(--clay);
-  font-style: italic;
+  margin: 3rem auto 0; max-width: 36rem;
+  padding: 1.6rem 1.5rem; text-align: center;
+  border: 1px solid var(--gold); outline: 1px solid rgba(212,165,74,.35); outline-offset: 5px;
+  font-family: var(--f-display); font-style: italic; font-weight: 500;
+  font-size: clamp(1.35rem, 3vw, 1.6rem); line-height: 1.4; color: var(--clay);
 }
 
-/* ═══ PHASES ═══ */
-.phases-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
+/* ═══ FIVE PHASES (table of contents) ═══ */
+.phases-list { list-style: none; border-top: 1px solid var(--line); }
+.phase {
+  display: grid; grid-template-columns: 3.25rem minmax(0, 1fr); column-gap: 1rem;
+  padding: 1.75rem 0; border-bottom: 1px solid var(--line); position: relative;
 }
-
-.phase-card {
-  position: relative;
-  background: var(--warm-white);
-  border-radius: 6px;
-  padding: 2rem 1.8rem;
-  border-top: 3px solid;
-  box-shadow: 0 2px 16px rgba(44,24,16,0.04);
-  transition: transform 0.3s, box-shadow 0.3s;
-  cursor: default;
-  overflow: hidden;
+.phase::before {
+  content: ''; position: absolute; left: 0; top: -1px; width: 3.25rem; height: 3px; background: var(--pc);
 }
-
-.phase-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 24px rgba(44,24,16,0.08);
-}
-
-.phase-card[data-phase="awareness"] { border-color: var(--phase-awareness); }
-.phase-card[data-phase="regulation"] { border-color: var(--phase-regulation); }
-.phase-card[data-phase="lineage"] { border-color: var(--phase-lineage); }
-.phase-card[data-phase="environment"] { border-color: var(--phase-environment); }
-.phase-card[data-phase="coherence"] { border-color: var(--phase-coherence); }
-
-.phase-number {
-  font-family: 'DM Serif Display', serif;
-  font-size: 2.5rem;
-  line-height: 1;
-  margin-bottom: 0.5rem;
-}
-
-.phase-card[data-phase="awareness"] .phase-number { color: var(--phase-awareness); }
-.phase-card[data-phase="regulation"] .phase-number { color: var(--phase-regulation); }
-.phase-card[data-phase="lineage"] .phase-number { color: var(--phase-lineage); }
-.phase-card[data-phase="environment"] .phase-number { color: var(--phase-environment); }
-.phase-card[data-phase="coherence"] .phase-number { color: var(--phase-coherence); }
-
-.phase-name {
-  font-family: 'DM Serif Display', serif;
-  font-size: 1.3rem;
-  color: var(--earth);
-  margin-bottom: 0.4rem;
-}
-
-.phase-sub {
-  font-size: 0.75rem;
-  color: var(--slate);
-  font-style: italic;
-  margin-bottom: 1rem;
-}
-
-.phase-chapters {
-  list-style: none;
-  padding: 0;
-}
-
+.phase-number { font-family: var(--f-accent); font-size: 2.25rem; line-height: 1; color: var(--pci); padding-top: 0.2rem; }
+.phase-head { grid-column: 2; }
+.phase-name { font-family: var(--f-display); font-size: 1.75rem; font-weight: 600; line-height: 1.15; color: var(--earth); }
+.phase-sub { font-family: var(--f-display); font-style: italic; font-size: 1.15rem; line-height: 1.45; color: var(--muted); margin-top: 0.3rem; }
+.phase-chapters { grid-column: 2; list-style: none; margin-top: 0.9rem; }
 .phase-chapters li {
-  font-size: 0.85rem;
-  color: var(--clay);
-  padding: 0.35rem 0;
-  border-bottom: 1px solid rgba(44,24,16,0.04);
+  font-size: 1rem; color: var(--clay); padding: 0.4rem 0;
+  border-bottom: 1px dotted rgba(44,24,16,.14);
 }
-
-.phase-chapters li:last-child { border: none; }
+.phase-chapters li:last-child { border-bottom: 0; }
+.phase[data-phase="awareness"]   { --pc: var(--phase-awareness);   --pci: var(--phase-awareness-ink); }
+.phase[data-phase="regulation"]  { --pc: var(--phase-regulation);  --pci: var(--phase-regulation-ink); }
+.phase[data-phase="lineage"]     { --pc: var(--phase-lineage);     --pci: var(--phase-lineage-ink); }
+.phase[data-phase="environment"] { --pc: var(--phase-environment); --pci: var(--phase-environment-ink); }
+.phase[data-phase="coherence"]   { --pc: var(--phase-coherence);   --pci: var(--phase-coherence-ink); }
+@media (min-width: 760px) {
+  .phase { grid-template-columns: 5rem minmax(0, 1fr) minmax(0, 1fr); column-gap: 2rem; padding: 2rem 0; }
+  .phase::before { width: 5rem; }
+  .phase-number { font-size: 2.75rem; }
+  .phase-head { grid-column: 2; }
+  .phase-chapters { grid-column: 3; margin-top: 0; }
+}
 
 /* ═══ CALLO CIRCUIT ═══ */
-#circuit {
-  background: var(--earth);
-  max-width: 100%;
-  padding: 5rem 2rem;
-  color: var(--cream);
+.circuit-flow { list-style: none; position: relative; display: grid; gap: 0; margin-top: 0.5rem; }
+.circuit-step { position: relative; padding: 0 0 2rem 3rem; }
+.circuit-step::before {
+  content: ''; position: absolute; left: 0.95rem; top: 2.3rem; bottom: 0.3rem; width: 1px; background: rgba(212,165,74,.3);
+}
+.circuit-step:last-child { padding-bottom: 0; }
+.circuit-step:last-child::before { display: none; }
+.circuit-num {
+  position: absolute; left: 0; top: 0;
+  width: 2rem; height: 2rem; border-radius: 50%;
+  border: 1px solid rgba(212,165,74,.55);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--f-mono); font-size: 0.75rem; color: var(--gold);
+}
+.circuit-name { font-family: var(--f-display); font-size: 1.6rem; font-weight: 500; line-height: 1.2; color: var(--gold); margin-bottom: 0.35rem; }
+.circuit-desc { font-size: 1rem; color: var(--sand); line-height: 1.6; max-width: 40ch; }
+@media (min-width: 900px) {
+  .circuit-flow { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1.75rem; }
+  .circuit-step { padding: 3.25rem 0 0; }
+  .circuit-step::before { left: 2.75rem; right: -1.75rem; top: 1rem; bottom: auto; width: auto; height: 1px; }
+  .circuit-step:last-child::before { display: none; }
 }
 
-#circuit .section-label { color: var(--gold); }
-#circuit .section-title { color: var(--cream); }
-#circuit .section-intro { color: var(--sand); }
-
-#circuit > div {
-  max-width: 960px;
-  margin: 0 auto;
+/* ═══ ACCORDIONS (shared) ═══ */
+.acc-trigger {
+  width: 100%; display: flex; align-items: center; gap: 0.9rem;
+  min-height: 56px; padding: 1rem 1.15rem;
+  background: transparent; border: 0; text-align: left; cursor: pointer;
+  font: inherit; color: inherit;
 }
-
-.circuit-flow {
-  display: flex;
-  gap: 0;
-  margin-top: 2.5rem;
-  flex-wrap: wrap;
-  justify-content: center;
+.acc-icon {
+  position: relative; width: 1.75rem; height: 1.75rem; flex-shrink: 0; margin-left: auto;
+  border: 1px solid var(--line-strong); border-radius: 50%;
 }
-
-.circuit-step {
-  flex: 1;
-  min-width: 160px;
-  max-width: 200px;
-  padding: 2rem 1.2rem;
-  text-align: center;
-  position: relative;
-  transition: background 0.3s;
-  cursor: default;
-  border-radius: 4px;
+.acc-icon::before, .acc-icon::after {
+  content: ''; position: absolute; left: 50%; top: 50%; width: 10px; height: 1.5px; background: var(--clay);
+  transform: translate(-50%, -50%); transition: transform .25s;
 }
-
-.circuit-step:hover {
-  background: rgba(212,165,74,0.06);
+.acc-icon::after { transform: translate(-50%, -50%) rotate(90deg); }
+.acc-trigger[aria-expanded="true"] .acc-icon::after { transform: translate(-50%, -50%) rotate(0deg); }
+.js .acc-panel:not(.is-open) { display: none; }
+@media (prefers-reduced-motion: no-preference) {
+  .acc-panel.is-open { animation: panel-in .35s ease both; }
 }
-
-.circuit-step::after {
-  content: '→';
-  position: absolute;
-  right: -8px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: rgba(212,165,74,0.3);
-  font-size: 1.2rem;
-}
-
-.circuit-step:last-child::after { content: ''; }
-
-.circuit-icon {
-  font-size: 1.8rem;
-  margin-bottom: 0.8rem;
-  display: block;
-}
-
-.circuit-name {
-  font-family: 'DM Serif Display', serif;
-  font-size: 1.1rem;
-  color: var(--gold);
-  margin-bottom: 0.5rem;
-}
-
-.circuit-desc {
-  font-size: 0.82rem;
-  color: var(--sand);
-  line-height: 1.5;
-}
+@keyframes panel-in { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
 
 /* ═══ PRACTICES ═══ */
-.practices-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin-top: 2rem;
-}
-
+.practices-list { display: grid; gap: 0.85rem; }
 .practice-item {
-  background: var(--warm-white);
-  border: 1px solid rgba(44,24,16,0.06);
-  border-radius: 6px;
-  overflow: hidden;
-  transition: box-shadow 0.3s;
+  background: var(--warm-white); border: 1px solid var(--line); border-radius: 6px;
+  box-shadow: 0 1px 2px rgba(44,24,16,.04);
+  transition: box-shadow .25s, border-color .25s;
 }
-
-.practice-item:hover {
-  box-shadow: 0 2px 16px rgba(44,24,16,0.06);
-}
-
-.practice-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1.2rem 1.5rem;
-  cursor: pointer;
-  gap: 1rem;
-}
-
-.practice-header-left {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.practice-phase-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-
-.practice-title {
-  font-family: 'DM Serif Display', serif;
-  font-size: 1.1rem;
-  color: var(--earth);
-}
-
-.practice-meta {
-  font-size: 0.75rem;
-  color: var(--slate);
-  white-space: nowrap;
-}
-
-.practice-toggle {
-  font-size: 1.2rem;
-  color: var(--clay);
-  transition: transform 0.3s;
-}
-
-.practice-item.open .practice-toggle {
-  transform: rotate(45deg);
-}
-
-.practice-body {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.5s ease;
-}
-
-.practice-body-inner {
-  padding: 0 1.5rem 1.5rem;
-  border-top: 1px solid rgba(44,24,16,0.04);
-  padding-top: 1.2rem;
-}
-
-.practice-when {
-  font-size: 0.85rem;
-  color: var(--amber);
-  font-weight: 600;
-  margin-bottom: 1rem;
-}
-
-.practice-steps {
-  counter-reset: step;
-  list-style: none;
-  padding: 0;
-}
-
+.practice-item:hover { box-shadow: 0 4px 18px rgba(44,24,16,.07); }
+.practice-item:has([aria-expanded="true"]) { border-color: rgba(196,125,43,.45); }
+.practice-item h3 { font-weight: inherit; }
+.practice-phase-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.practice-title-wrap { display: flex; flex-direction: column; gap: 0.15rem; min-width: 0; }
+.practice-title { font-family: var(--f-display); font-size: 1.45rem; font-weight: 600; line-height: 1.2; color: var(--earth); }
+.practice-meta { font-family: var(--f-mono); font-size: 0.75rem; color: var(--muted); letter-spacing: .02em; }
+.practice-body-inner { padding: 0.25rem 1.15rem 1.5rem; border-top: 1px solid var(--line); margin: 0 1.15rem; padding-left: 0; padding-right: 0; padding-top: 1.25rem; }
+.practice-when { font-size: 0.95rem; font-weight: 600; color: var(--accent-ink); margin-bottom: 1.1rem; }
+.practice-steps { counter-reset: step; list-style: none; }
 .practice-steps li {
-  counter-increment: step;
-  position: relative;
-  padding-left: 2.5rem;
-  margin-bottom: 1rem;
-  font-size: 0.9rem;
-  line-height: 1.6;
-  color: var(--earth);
+  counter-increment: step; position: relative;
+  padding-left: 2.6rem; margin-bottom: 1rem;
+  font-size: 1rem; line-height: 1.65; color: var(--earth);
 }
-
 .practice-steps li::before {
   content: counter(step);
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 1.6rem;
-  height: 1.6rem;
-  background: var(--cream);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'DM Serif Display', serif;
-  font-size: 0.8rem;
-  color: var(--clay);
+  position: absolute; left: 0; top: 0.05rem; width: 1.75rem; height: 1.75rem;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--cream); border: 1px solid rgba(196,125,43,.35); border-radius: 50%;
+  font-family: var(--f-accent); font-size: 0.875rem; color: var(--clay);
 }
-
-.practice-steps li strong {
-  font-weight: 600;
-  color: var(--clay);
-}
-
+.practice-steps li strong { font-weight: 600; color: var(--clay); }
 .practice-affirmation {
-  margin-top: 1rem;
-  padding: 0.8rem 1.2rem;
-  background: var(--cream);
-  border-radius: 4px;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.05rem;
-  font-style: italic;
-  color: var(--clay);
+  margin-top: 1.25rem; padding: 0.9rem 1.2rem;
+  background: var(--cream); border-left: 2px solid var(--gold); border-radius: 0 4px 4px 0;
+  font-family: var(--f-display); font-size: 1.25rem; font-style: italic; color: var(--clay); line-height: 1.45;
+}
+@media (min-width: 640px) {
+  .acc-trigger { padding: 1.1rem 1.5rem; }
+  .practice-title-wrap { flex-direction: row; align-items: baseline; gap: 1rem; flex: 1; }
+  .practice-meta { margin-left: auto; white-space: nowrap; }
+  .practice-item .acc-icon { margin-left: 0.5rem; }
+  .practice-body-inner { margin: 0 1.5rem; }
 }
 
 /* ═══ SIGNAL CHECK ═══ */
-#signal-check {
-  background: linear-gradient(180deg, var(--cream) 0%, var(--warm-white) 100%);
-  max-width: 100%;
-  padding: 5rem 2rem;
+.signal-form { counter-reset: none; }
+.signal-question { border: 0; padding: 1.75rem 0; border-bottom: 1px solid var(--line); min-width: 0; }
+.signal-question:first-of-type { border-top: 1px solid var(--line); }
+.signal-question legend {
+  display: flex; gap: 0.85rem; align-items: baseline; padding: 0; margin-bottom: 1rem; width: 100%;
 }
-
-#signal-check > div {
-  max-width: 720px;
-  margin: 0 auto;
+.sq-num { font-family: var(--f-mono); font-size: 0.75rem; color: var(--accent-ink); flex-shrink: 0; }
+.sq-text { font-family: var(--f-display); font-size: 1.35rem; font-weight: 500; line-height: 1.35; color: var(--earth); }
+.sq-options { display: grid; gap: 0.5rem; }
+@media (min-width: 560px) { .sq-options { grid-template-columns: 1fr 1fr; } }
+.sq-option { position: relative; display: block; cursor: pointer; }
+.sq-option input { position: absolute; opacity: 0; width: 1px; height: 1px; pointer-events: none; }
+.sq-option span {
+  display: flex; align-items: center; gap: 0.7rem;
+  min-height: 48px; height: 100%; padding: 0.7rem 1rem;
+  font-size: 1rem; line-height: 1.35; color: var(--earth);
+  background: var(--warm-white); border: 1px solid var(--line-strong); border-radius: 3px;
+  transition: background-color .2s, border-color .2s;
 }
-
-.signal-question {
-  padding: 1.5rem 0;
-  border-bottom: 1px solid rgba(44,24,16,0.06);
+.sq-option span::before {
+  content: ''; width: 14px; height: 14px; flex-shrink: 0; border-radius: 50%;
+  border: 1.5px solid var(--line-strong); background: var(--warm-white);
+  transition: box-shadow .2s, border-color .2s;
 }
+.sq-option:hover span { border-color: var(--amber); background: var(--cream); }
+.sq-option input:checked + span { background: var(--gold); border-color: var(--gold); font-weight: 600; }
+.sq-option input:checked + span::before { border-color: var(--earth); box-shadow: inset 0 0 0 3px var(--warm-white); background: var(--earth); }
+.sq-option input:focus-visible + span { outline: 2px solid var(--accent-ink); outline-offset: 2px; }
 
-.signal-question:last-of-type { border: none; }
+.signal-submit { margin-top: 2rem; display: flex; flex-direction: column; align-items: center; gap: 0.75rem; text-align: center; }
+.signal-submit .btn { width: 100%; max-width: 320px; }
+.signal-progress { color: var(--muted); }
 
-.sq-text {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.15rem;
-  color: var(--earth);
-  margin-bottom: 0.8rem;
-}
-
-.sq-options {
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-}
-
-.sq-option {
-  padding: 0.5rem 1.2rem;
-  font-family: 'Nunito Sans', sans-serif;
-  font-size: 0.78rem;
-  font-weight: 400;
-  border: 1px solid rgba(44,24,16,0.12);
-  border-radius: 3px;
-  cursor: pointer;
-  transition: all 0.2s;
-  background: var(--warm-white);
-  color: var(--earth);
-}
-
-.sq-option:hover {
-  border-color: var(--amber);
-  background: var(--cream);
-}
-
-.sq-option.selected {
-  background: var(--gold);
-  border-color: var(--gold);
-  color: var(--earth);
-  font-weight: 600;
-}
-
+.signal-result:empty { display: none; }
 .signal-result {
-  display: none;
-  margin-top: 2.5rem;
-  padding: 2.5rem;
-  background: var(--warm-white);
-  border-radius: 6px;
-  border-left: 3px solid var(--gold);
-  box-shadow: 0 2px 20px rgba(44,24,16,0.05);
+  margin-top: 2.5rem; padding: clamp(1.5rem, 5vw, 2.5rem);
+  background: var(--warm-white); border-left: 3px solid var(--gold); border-radius: 0 6px 6px 0;
+  box-shadow: 0 1px 2px rgba(44,24,16,.05), 0 8px 28px rgba(44,24,16,.06);
+  scroll-margin-top: calc(var(--header-h) + 24px);
 }
-
-.signal-result.visible { display: block; animation: fadeUp 0.5s forwards; }
-
+@media (prefers-reduced-motion: no-preference) {
+  .signal-result:not(:empty) { animation: panel-in .5s ease both; }
+}
 .result-label {
-  font-family: 'Nunito Sans', sans-serif;
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--amber);
-  margin-bottom: 0.5rem;
+  font-family: var(--f-body); font-size: 0.72rem; font-weight: 600;
+  letter-spacing: .2em; text-transform: uppercase; color: var(--accent-ink); margin-bottom: 0.5rem;
 }
-
-.result-title {
-  font-family: 'DM Serif Display', serif;
-  font-size: 1.6rem;
-  color: var(--earth);
-  margin-bottom: 0.8rem;
-}
-
-.result-body {
-  font-size: 0.95rem;
-  color: var(--clay);
-  line-height: 1.7;
-  margin-bottom: 1rem;
-}
-
-.result-practice {
-  padding: 1rem;
-  background: var(--cream);
-  border-radius: 4px;
-  font-size: 0.9rem;
-  color: var(--earth);
-}
-
-.result-practice strong {
-  display: block;
-  font-weight: 600;
-  margin-bottom: 0.3rem;
-  color: var(--clay);
-}
-
-.signal-submit {
-  margin-top: 2rem;
-  text-align: center;
-}
+.result-title { font-family: var(--f-accent); font-size: 1.85rem; line-height: 1.2; color: var(--earth); margin-bottom: 0.8rem; }
+.result-body { font-size: 1rem; color: var(--clay); line-height: 1.7; margin-bottom: 1.1rem; }
+.result-practice { padding: 1rem 1.1rem; background: var(--cream); border-radius: 4px; font-size: 1rem; color: var(--earth); }
+.result-practice strong { display: block; font-weight: 600; margin-bottom: 0.3rem; color: var(--clay); }
 
 /* ═══ DISCUSSION ═══ */
-.discussion-part {
-  margin-bottom: 1.5rem;
-}
-
-.discussion-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 1.5rem;
-  background: var(--cream);
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.discussion-header:hover {
-  background: var(--sand);
-}
-
-.discussion-part-title {
-  font-family: 'DM Serif Display', serif;
-  font-size: 1.05rem;
-  color: var(--earth);
-}
-
-.discussion-toggle {
-  color: var(--clay);
-  font-size: 1rem;
-  transition: transform 0.3s;
-}
-
-.discussion-part.open .discussion-toggle {
-  transform: rotate(45deg);
-}
-
-.discussion-body {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.5s ease;
-}
-
-.discussion-body-inner {
-  padding: 1.2rem 1.5rem;
-}
-
-.discussion-body-inner ol {
-  padding-left: 1.2rem;
-}
-
-.discussion-body-inner li {
-  font-size: 0.9rem;
-  color: var(--clay);
-  margin-bottom: 0.8rem;
-  line-height: 1.6;
-}
+.discussion-list { display: grid; gap: 0.75rem; }
+.discussion-part { background: var(--cream); border: 1px solid var(--line); border-radius: 4px; }
+.discussion-part h3 { font-weight: inherit; }
+.discussion-part .acc-trigger:hover { background: rgba(232,213,183,.45); }
+.discussion-part-title { font-family: var(--f-display); font-size: 1.35rem; font-weight: 600; line-height: 1.25; color: var(--earth); }
+.discussion-part-title .mono { font-family: var(--f-mono); font-weight: 400; color: var(--muted); white-space: nowrap; display: inline-block; }
+.discussion-body-inner { padding: 0.25rem 1.15rem 1.4rem; }
+.discussion-body-inner ol { padding-left: 1.4rem; }
+.discussion-body-inner li { font-size: 1rem; color: var(--clay); margin-bottom: 0.9rem; line-height: 1.65; padding-left: 0.25rem; }
+.discussion-body-inner li::marker { font-family: var(--f-mono); font-size: 0.8rem; color: var(--accent-ink); }
+@media (min-width: 640px) { .discussion-body-inner { padding: 0.25rem 1.5rem 1.5rem 1.75rem; } }
 
 /* ═══ AUTHOR ═══ */
-#author {
-  background: var(--earth);
-  max-width: 100%;
-  padding: 5rem 2rem;
-  color: var(--cream);
-}
-
-#author > div {
-  max-width: 720px;
-  margin: 0 auto;
-}
-
-#author .section-label { color: var(--gold); }
-#author .section-title { color: var(--cream); }
-
-.author-bio {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.15rem;
-  color: var(--sand);
-  line-height: 1.8;
-  margin-bottom: 2rem;
-}
-
-.author-links {
-  display: flex;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-}
-
+.author-grid { display: grid; gap: 2.5rem; }
+.author-bio p { font-family: var(--f-display); font-size: clamp(1.2rem, 2.4vw, 1.3rem); color: var(--sand); line-height: 1.7; }
+.author-bio p + p { margin-top: 1.1rem; }
+.author-bio em { color: var(--cream); }
+.author-links { list-style: none; display: flex; flex-wrap: wrap; gap: 0 1.5rem; margin-top: 1.75rem; }
 .author-links a {
-  font-family: 'Nunito Sans', sans-serif;
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: var(--gold);
-  padding-bottom: 2px;
-  border-bottom: 1px solid rgba(212,165,74,0.3);
-  transition: border-color 0.3s;
+  display: inline-flex; align-items: center; min-height: 44px;
+  font-family: var(--f-body); font-size: 0.75rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--gold); text-decoration: underline; text-decoration-color: rgba(212,165,74,.35); text-underline-offset: 6px;
 }
-
-.author-links a:hover {
-  border-color: var(--gold);
+.author-links a:hover { text-decoration-color: var(--gold); }
+.author-aside { display: grid; gap: 1rem; align-content: start; }
+.aside-card {
+  display: block; text-decoration: none; padding: 1.4rem 1.5rem;
+  border: 1px solid rgba(232,213,183,.2); border-radius: 4px; background: rgba(0,0,0,.14);
+  transition: border-color .25s, background-color .25s;
 }
+.aside-card:hover { border-color: rgba(212,165,74,.6); background: rgba(0,0,0,.22); }
+.aside-kicker { font-family: var(--f-body); font-size: 0.72rem; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: var(--on-dark-muted); }
+.aside-title { display: block; font-family: var(--f-display); font-size: 1.6rem; font-weight: 500; line-height: 1.2; color: var(--cream); margin-top: 0.4rem; }
+.aside-line { display: block; font-size: 1rem; color: var(--sand); margin-top: 0.4rem; }
+.aside-go { display: inline-block; margin-top: 0.85rem; font-family: var(--f-mono); font-size: 0.75rem; color: var(--gold); }
+@media (min-width: 900px) { .author-grid { grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 4rem; } }
 
 /* ═══ NEWSLETTER ═══ */
-#newsletter {
-  background: var(--cream);
-  padding: 4rem 2rem;
-  text-align: center;
-}
-
-#newsletter > div {
-  max-width: 520px;
-  margin: 0 auto;
-}
-
-#newsletter .section-label { color: var(--clay); }
-
-#newsletter .section-title {
-  font-family: 'DM Serif Display', serif;
-  font-size: 1.8rem;
-  color: var(--earth);
-  margin-bottom: 0.75rem;
-}
-
-.newsletter-desc {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.1rem;
-  color: var(--slate);
-  line-height: 1.7;
-  margin-bottom: 2rem;
-}
-
-.newsletter-form {
-  display: flex;
-  gap: 0.75rem;
-  max-width: 440px;
-  margin: 0 auto;
-}
-
-.newsletter-form input[type="email"] {
-  flex: 1;
-  font-family: 'Nunito Sans', sans-serif;
-  font-size: 0.9rem;
-  padding: 0.75rem 1rem;
-  border: 1px solid rgba(107,58,42,0.2);
-  border-radius: 4px;
-  background: var(--warm-white);
-  color: var(--earth);
-  outline: none;
-  transition: border-color 0.3s;
-}
-
-.newsletter-form input[type="email"]:focus {
-  border-color: var(--gold);
-}
-
-.newsletter-form button {
-  font-family: 'Nunito Sans', sans-serif;
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  padding: 0.75rem 1.5rem;
-  background: var(--earth);
-  color: var(--cream);
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.newsletter-form button:hover {
-  background: var(--clay);
-}
-
-.newsletter-privacy {
-  font-size: 0.72rem;
-  color: var(--slate);
-  opacity: 0.6;
-  margin-top: 1rem;
-}
-
-@media (max-width: 480px) {
-  .newsletter-form {
-    flex-direction: column;
-  }
-}
+#newsletter { text-align: center; }
+#newsletter .section-label { justify-content: center; color: var(--clay); }
+#newsletter .section-label::before { display: none; }
+#newsletter .section-title { font-size: clamp(1.9rem, 4vw, 2.3rem); }
+.newsletter-desc { font-family: var(--f-display); font-size: 1.25rem; color: var(--muted); line-height: 1.6; margin: 0 auto 1.75rem; max-width: 34rem; }
+.newsletter-inner { max-width: 560px; margin: 0 auto; padding: 0 var(--gutter-r) 0 var(--gutter); }
 
 /* Kit form overrides */
 .formkit-alert-success { background: transparent !important; border: 1px solid var(--clay) !important; color: var(--earth) !important; }
 .formkit-powered-by-convertkit-container { display: none !important; }
 
-
-/* Shared cross-site links (2026-10 preview) */
-.eco-links { font-size: 0.78rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.4rem 1.6rem; margin-top: 1rem; }
-.eco-links a { text-decoration: none; }
-.eco-links a[aria-current] { text-decoration: underline; text-underline-offset: 3px; }
-a:focus-visible, button:focus-visible, [tabindex]:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
-
 /* ═══ FOOTER ═══ */
-footer {
-  text-align: center;
-  padding: 2.5rem 2rem;
-  background: #1A0F0A;
-  color: rgba(232,213,183,0.3);
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
+.eco-footer { background: var(--eco-ink); color: var(--eco-silver); border-top: 1px solid rgba(193,154,69,.18); }
+.eco-footer-inner {
+  max-width: 1200px; margin: 0 auto; padding: 3.5rem var(--gutter-r) 2rem var(--gutter);
+  display: grid; gap: 2.5rem;
 }
-
-footer a {
-  color: rgba(232,213,183,0.5);
-  text-decoration: none;
+.footer-brand img { width: 43px; height: 44px; }
+.footer-brand-name { font-family: var(--f-body); font-size: 0.8rem; font-weight: 600; letter-spacing: .2em; color: var(--eco-silver); margin-top: 1rem; }
+.footer-tagline { font-family: var(--f-display); font-style: italic; font-size: 1.15rem; color: var(--eco-silver-dim); margin-top: 0.35rem; }
+.footer-work {
+  display: inline-flex; align-items: center; min-height: 44px; margin-top: 1rem;
+  font-size: 0.72rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--eco-gold-bright); text-decoration: underline; text-decoration-color: rgba(220,189,110,.4); text-underline-offset: 6px;
 }
-
-footer a:hover { color: var(--gold); }
-
-/* ═══ RESPONSIVE ═══ */
-@media (max-width: 768px) {
-  section { padding: 3.5rem 1.5rem; }
-  .circuit-flow { flex-direction: column; align-items: center; }
-  .circuit-step { max-width: 100%; min-width: auto; }
-  .circuit-step::after { content: '↓'; right: auto; left: 50%; top: auto; bottom: -6px; transform: translateX(-50%); }
-  .circuit-step:last-child::after { content: ''; }
-  .nav { gap: 0.8rem; padding: 0.7rem 1rem; }
-  .nav a { font-size: 0.65rem; letter-spacing: 0.12em; }
-  .phases-grid { grid-template-columns: 1fr; }
-  .signal-rings { width: 350px; height: 350px; }
+.footer-heading { font-family: var(--f-body); font-size: 0.72rem; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: var(--eco-gold); margin-bottom: 0.6rem; }
+.footer-links { list-style: none; }
+.footer-links a {
+  display: inline-flex; align-items: center; min-height: 44px;
+  font-size: 0.95rem; color: var(--eco-silver); text-decoration: none;
 }
-
-@media (max-width: 480px) {
-  .hero-cta { flex-direction: column; align-items: center; }
-  .btn { width: 100%; max-width: 280px; text-align: center; }
+.footer-links a:hover { color: var(--eco-gold-bright); }
+.footer-links a[aria-current="page"] { color: var(--eco-gold-bright); }
+.footer-bottom {
+  max-width: 1200px; margin: 0 auto; padding: 1.25rem var(--gutter-r) calc(1.5rem + env(safe-area-inset-bottom)) var(--gutter);
+  border-top: 1px solid rgba(201,198,192,.1);
+  display: flex; flex-wrap: wrap; gap: 0.25rem 1rem; align-items: center;
+  font-size: 0.8rem; color: var(--eco-silver-dim);
 }
-
-/* ═══ BREATHING INDICATOR ═══ */
-.breath-indicator {
-  position: fixed;
-  bottom: 1.5rem;
-  right: 1.5rem;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: var(--gold);
-  opacity: 0.15;
-  animation: breath-circle 7s ease-in-out infinite;
-  pointer-events: none;
-  z-index: 50;
-}
-
-@keyframes breath-circle {
-  0%, 100% { transform: scale(0.6); opacity: 0.1; }
-  35% { transform: scale(1); opacity: 0.2; }
-  50% { transform: scale(1); opacity: 0.2; }
-  85% { transform: scale(0.6); opacity: 0.1; }
-}
+.footer-bottom a { color: var(--eco-silver); display: inline-flex; align-items: center; min-height: 44px; }
+.footer-bottom a:hover { color: var(--eco-gold-bright); }
+@media (min-width: 760px) { .eco-footer-inner { grid-template-columns: 1.3fr 1fr 1fr; gap: 3rem; } }
 </style>
 </head>
 <body>
 
-<!-- ═══ HERO ═══ -->
-<div class="hero">
-  <div class="signal-rings">
-    <div class="ring"></div>
-    <div class="ring"></div>
-    <div class="ring"></div>
-    <div class="ring"></div>
-  </div>
-  <div class="hero-content">
-    <img src="dando-logo.png" alt="DANDO LLC" class="hero-logo" />
-    <div class="hero-subtitle-top">The Callo's Way Coherence Series</div>
-    <h1 class="hero-title">Callo's <em>Way</em></h1>
-    <p class="hero-tagline">The Art of Conscious Empowerment — A Rhythm Remembered</p>
-    <p class="hero-author">Daniel D. Calloway III</p>
-    <div class="hero-cta">
-      <a href="https://www.amazon.com/dp/B0FJQRRY2C" class="btn btn-primary" target="_blank" rel="noopener">Get the Book</a>
-      <a href="https://callosway.gumroad.com/l/uqqcu" class="btn btn-ghost" target="_blank" rel="noopener">Digital Edition</a>
-    </div>
-  </div>
-  <div class="scroll-hint">Begin</div>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="eco-strip">
+  <nav class="eco-strip-inner" aria-label="Daniel D. Calloway III sites">
+    <a href="https://dandollc.github.io/">Daniel D. Calloway III</a>
+    <a href="https://dandollc.github.io/dando/">DANDO Advisory</a>
+    <a href="https://dandollc.github.io/callosway/" aria-current="page">Callo&rsquo;s Way</a>
+    <a href="https://dandollc.github.io/thedependencydesign/">The Dependency Design</a>
+  </nav>
 </div>
 
-<!-- ═══ NAV ═══ -->
-<nav class="nav" id="nav">
-  <a href="#thesis">Thesis</a>
-  <a href="#phases">Five Phases</a>
-  <a href="#circuit">Callo Circuit</a>
-  <a href="#practices">Practices</a>
-  <a href="#signal-check">Signal Check</a>
-  <a href="#discussion">Discussion</a>
-  <a href="#author">Author</a>
-  <a href="#newsletter">Subscribe</a>
-</nav>
+<header class="eco-header">
+  <div class="eco-header-inner">
+    <a class="eco-brand" href="https://dandollc.github.io/callosway/">
+      <img src="dando-mark-on-dark.png" width="33" height="34" alt="" aria-hidden="true">
+      <span class="eco-brand-name">Callo's Way</span>
+    </a>
+    <nav class="eco-nav" id="eco-nav" aria-label="Callo's Way sections">
+      <a href="#phases">Phases</a>
+      <a href="#circuit">Circuit</a>
+      <a href="#practices">Practices</a>
+      <a href="#signal-check">Signal Check</a>
+      <a href="#discussion">Discussion</a>
+      <a href="#author">Author</a>
+      <a class="eco-nav-cta" href="https://www.amazon.com/dp/B0FJQRRY2C" target="_blank" rel="noopener">Get the book</a>
+    </nav>
+    <a class="eco-cta" href="https://www.amazon.com/dp/B0FJQRRY2C" target="_blank" rel="noopener">Get the book</a>
+    <button class="eco-menu-btn" type="button" aria-expanded="false" aria-controls="eco-nav">Menu</button>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+
+<!-- ═══ HERO ═══ -->
+<section class="hero on-dark" aria-labelledby="book-title">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="hero-series">The Callo's Way Coherence Series <span class="mono">Book I</span></p>
+      <h1 class="hero-title" id="book-title">Callo's <em>Way</em></h1>
+      <p class="hero-tagline">The Art of Conscious Empowerment — A Rhythm Remembered</p>
+      <p class="hero-author">Daniel D. Calloway III</p>
+      <div class="hero-actions">
+        <a href="https://www.amazon.com/dp/B0FJQRRY2C" class="btn btn-primary" target="_blank" rel="noopener">Get the book in print</a>
+        <div class="hero-actions-row">
+          <a href="https://www.amazon.com/dp/B0FJQGDC87" class="btn btn-ghost" target="_blank" rel="noopener">Kindle</a>
+          <a href="https://callosway.gumroad.com/l/uqqcu" class="btn btn-ghost" target="_blank" rel="noopener">Digital edition</a>
+        </div>
+      </div>
+    </div>
+    <div class="breath hero-breath">
+      <div class="breath-figure" aria-hidden="true">
+        <span class="ring ring-3"></span><span class="ring"></span><span class="ring ring-2"></span><span class="core"></span>
+      </div>
+      <p class="breath-caption"><b>Breathe with it</b>5 in · 2 hold · 6 out</p>
+    </div>
+  </div>
+</section>
 
 <!-- ═══ THESIS ═══ -->
-<section id="thesis">
-  <div>
-    <div class="section-label">The Core Argument</div>
-    <h2 class="section-title">You Are Not Broken. You Are Out of Rhythm.</h2>
+<section id="thesis" class="band" aria-labelledby="thesis-title">
+  <div class="wrap-narrow">
+    <p class="section-label">The Core Argument</p>
+    <h2 class="section-title" id="thesis-title">You Are Not Broken. You Are Out of Rhythm.</h2>
     <p class="section-intro">The book operates at the paradigm level. Not adjusting habits or adding protocols, but offering a different operating system altogether.</p>
     <div class="thesis-block">
       <p>We do not suffer from a lack of knowledge. We suffer from <span class="accent">rhythm collapse</span> — from fragmentation, disconnection, and incoherence. Most people don't reject inner work due to a lack of desire to grow. They reject it because it feels vague, unstructured, or disconnected from modern life.</p>
-      <br>
       <p>This book bridges the gap between <span class="accent">science and spirit</span> — neuroscience and ancestral rhythm, adaptogens and emotional presence, detox protocols and prayer, brain optimization and ceremony. Not because it's trendy — but because that's what we are. Complex. Multidimensional. Electrical. Emotional. Ancestral. Human.</p>
-      <br>
       <p>Callo's Way offers a structured intervention engaging every layer of human experience — cognitive, emotional, somatic, environmental, ancestral. At its core is <span class="accent">coherence</span>: a concrete state of alignment across life's multiple dimensions. Not as concept, but as pattern. Not as knowledge, but as home.</p>
     </div>
-    <p class="thesis-signal">"You are not chasing rhythm — you're already creating it, breath by breath."</p>
+    <blockquote class="thesis-signal"><p>"You are not chasing rhythm — you're already creating it, breath by breath."</p></blockquote>
   </div>
 </section>
 
 <!-- ═══ FIVE PHASES ═══ -->
-<section id="phases">
-  <div class="section-label">The Architecture</div>
-  <h2 class="section-title">Five Phases of Coherence</h2>
-  <p class="section-intro">The book unfolds across five phases, each engaging a different layer of human experience. Together, they form a complete system.</p>
+<section id="phases" class="band band-cream" aria-labelledby="phases-title">
+  <div class="wrap">
+    <p class="section-label">The Architecture</p>
+    <h2 class="section-title" id="phases-title">Five Phases of Coherence</h2>
+    <p class="section-intro">The book unfolds across five phases, each engaging a different layer of human experience. Together, they form a complete system.</p>
 
-  <div class="phases-grid">
-    <div class="phase-card" data-phase="awareness">
-      <div class="phase-number">01</div>
-      <div class="phase-name">Awareness</div>
-      <div class="phase-sub">Where consciousness meets biology, and perception begins to shape form</div>
-      <ul class="phase-chapters">
-        <li>Quantum Perception</li>
-        <li>Neuroplasticity & Epigenetics</li>
-        <li>The Nervous System & Safety</li>
-        <li>Trauma, Fluidity & Inner Coherence</li>
-      </ul>
-    </div>
-    <div class="phase-card" data-phase="regulation">
-      <div class="phase-number">02</div>
-      <div class="phase-name">Regulation</div>
-      <div class="phase-sub">Nourishing body, breath, and being</div>
-      <ul class="phase-chapters">
-        <li>Feeding the Mind</li>
-        <li>Gut–Brain Synergy</li>
-        <li>Breath, Movement & Stillness</li>
-        <li>Adaptogens & Vibrational Medicine</li>
-      </ul>
-    </div>
-    <div class="phase-card" data-phase="lineage">
-      <div class="phase-number">03</div>
-      <div class="phase-name">Lineage</div>
-      <div class="phase-sub">Honoring the living past</div>
-      <ul class="phase-chapters">
-        <li>Lineage and the Living Past</li>
-        <li>Ceremony & Communion</li>
-        <li>Dreamwork & Inner Mythology</li>
-      </ul>
-    </div>
-    <div class="phase-card" data-phase="environment">
-      <div class="phase-number">04</div>
-      <div class="phase-name">Environment</div>
-      <div class="phase-sub">Clearing external interference</div>
-      <ul class="phase-chapters">
-        <li>Circadian Wisdom</li>
-        <li>Toxins, Fields & Protective Rituals</li>
-        <li>Digital Nervous Systems</li>
-      </ul>
-    </div>
-    <div class="phase-card" data-phase="coherence">
-      <div class="phase-number">05</div>
-      <div class="phase-name">Coherence</div>
-      <div class="phase-sub">Designing your day, attuning to your signal, and embodying your field</div>
-      <ul class="phase-chapters">
-        <li>Meditation & Quantum Intent</li>
-        <li>Designing a Day of Empowerment</li>
-        <li>Alchemy as Practice</li>
-      </ul>
-    </div>
+    <ol class="phases-list">
+      <li class="phase" data-phase="awareness">
+        <div class="phase-number" aria-hidden="true">01</div>
+        <div class="phase-head">
+          <h3 class="phase-name">Awareness</h3>
+          <p class="phase-sub">Where consciousness meets biology, and perception begins to shape form</p>
+        </div>
+        <ul class="phase-chapters" aria-label="Awareness chapters">
+          <li>Quantum Perception</li>
+          <li>Neuroplasticity &amp; Epigenetics</li>
+          <li>The Nervous System &amp; Safety</li>
+          <li>Trauma, Fluidity &amp; Inner Coherence</li>
+        </ul>
+      </li>
+      <li class="phase" data-phase="regulation">
+        <div class="phase-number" aria-hidden="true">02</div>
+        <div class="phase-head">
+          <h3 class="phase-name">Regulation</h3>
+          <p class="phase-sub">Nourishing body, breath, and being</p>
+        </div>
+        <ul class="phase-chapters" aria-label="Regulation chapters">
+          <li>Feeding the Mind</li>
+          <li>Gut–Brain Synergy</li>
+          <li>Breath, Movement &amp; Stillness</li>
+          <li>Adaptogens &amp; Vibrational Medicine</li>
+        </ul>
+      </li>
+      <li class="phase" data-phase="lineage">
+        <div class="phase-number" aria-hidden="true">03</div>
+        <div class="phase-head">
+          <h3 class="phase-name">Lineage</h3>
+          <p class="phase-sub">Honoring the living past</p>
+        </div>
+        <ul class="phase-chapters" aria-label="Lineage chapters">
+          <li>Lineage and the Living Past</li>
+          <li>Ceremony &amp; Communion</li>
+          <li>Dreamwork &amp; Inner Mythology</li>
+        </ul>
+      </li>
+      <li class="phase" data-phase="environment">
+        <div class="phase-number" aria-hidden="true">04</div>
+        <div class="phase-head">
+          <h3 class="phase-name">Environment</h3>
+          <p class="phase-sub">Clearing external interference</p>
+        </div>
+        <ul class="phase-chapters" aria-label="Environment chapters">
+          <li>Circadian Wisdom</li>
+          <li>Toxins, Fields &amp; Protective Rituals</li>
+          <li>Digital Nervous Systems</li>
+        </ul>
+      </li>
+      <li class="phase" data-phase="coherence">
+        <div class="phase-number" aria-hidden="true">05</div>
+        <div class="phase-head">
+          <h3 class="phase-name">Coherence</h3>
+          <p class="phase-sub">Designing your day, attuning to your signal, and embodying your field</p>
+        </div>
+        <ul class="phase-chapters" aria-label="Coherence chapters">
+          <li>Meditation &amp; Quantum Intent</li>
+          <li>Designing a Day of Empowerment</li>
+          <li>Alchemy as Practice</li>
+        </ul>
+      </li>
+    </ol>
   </div>
 </section>
 
 <!-- ═══ CALLO CIRCUIT ═══ -->
-<section id="circuit">
-  <div>
-    <div class="section-label">Bonus</div>
-    <h2 class="section-title">The Callo Circuit</h2>
+<section id="circuit" class="band band-earth on-dark" aria-labelledby="circuit-title">
+  <div class="wrap">
+    <p class="section-label">Bonus</p>
+    <h2 class="section-title" id="circuit-title">The Callo Circuit</h2>
     <p class="section-intro">A daily five-phase loop from the bonus chapter. Not a checklist. An energetic arc designed to structure your day around signal, not reaction.</p>
 
-    <div class="circuit-flow">
-      <div class="circuit-step">
-        <span class="circuit-icon">🔥</span>
-        <div class="circuit-name">Purge</div>
-        <div class="circuit-desc">Move. Sweat. Shake. Let the excess leave — stored emotion, digital overload, stagnation in the breath.</div>
-      </div>
-      <div class="circuit-step">
-        <span class="circuit-icon">🌬️</span>
-        <div class="circuit-name">Breathe</div>
-        <div class="circuit-desc">Drop in. Reset the tempo from within. Use breath, stillness, or coherence practices to recalibrate your field.</div>
-      </div>
-      <div class="circuit-step">
-        <span class="circuit-icon">🌿</span>
-        <div class="circuit-name">Anchor</div>
-        <div class="circuit-desc">Ground into nourishment, space, and physical presence. Eat with intention. Walk slowly. Touch the earth.</div>
-      </div>
-      <div class="circuit-step">
-        <span class="circuit-icon">🔨</span>
-        <div class="circuit-name">Construct</div>
-        <div class="circuit-desc">Create from coherence. Write. Lead. Design. Serve. Build from signal, not reaction.</div>
-      </div>
-      <div class="circuit-step">
-        <span class="circuit-icon">🌙</span>
-        <div class="circuit-name">Seal</div>
-        <div class="circuit-desc">Close the loop. End the day with breath, reflection, silence, or prayer. Hold what you've built.</div>
-      </div>
-    </div>
+    <ol class="circuit-flow">
+      <li class="circuit-step">
+        <span class="circuit-num" aria-hidden="true">01</span>
+        <h3 class="circuit-name">Purge</h3>
+        <p class="circuit-desc">Move. Sweat. Shake. Let the excess leave — stored emotion, digital overload, stagnation in the breath.</p>
+      </li>
+      <li class="circuit-step">
+        <span class="circuit-num" aria-hidden="true">02</span>
+        <h3 class="circuit-name">Breathe</h3>
+        <p class="circuit-desc">Drop in. Reset the tempo from within. Use breath, stillness, or coherence practices to recalibrate your field.</p>
+      </li>
+      <li class="circuit-step">
+        <span class="circuit-num" aria-hidden="true">03</span>
+        <h3 class="circuit-name">Anchor</h3>
+        <p class="circuit-desc">Ground into nourishment, space, and physical presence. Eat with intention. Walk slowly. Touch the earth.</p>
+      </li>
+      <li class="circuit-step">
+        <span class="circuit-num" aria-hidden="true">04</span>
+        <h3 class="circuit-name">Construct</h3>
+        <p class="circuit-desc">Create from coherence. Write. Lead. Design. Serve. Build from signal, not reaction.</p>
+      </li>
+      <li class="circuit-step">
+        <span class="circuit-num" aria-hidden="true">05</span>
+        <h3 class="circuit-name">Seal</h3>
+        <p class="circuit-desc">Close the loop. End the day with breath, reflection, silence, or prayer. Hold what you've built.</p>
+      </li>
+    </ol>
   </div>
 </section>
 
 <!-- ═══ PRACTICES ═══ -->
-<section id="practices">
-  <div class="section-label">Embodied Tools</div>
-  <h2 class="section-title">Guided Practices</h2>
-  <p class="section-intro">Each chapter closes with a hands-on practice. These are the core ones, pulled directly from the book.</p>
+<section id="practices" class="band" aria-labelledby="practices-title">
+  <div class="wrap-narrow">
+    <p class="section-label">Embodied Tools</p>
+    <h2 class="section-title" id="practices-title">Guided Practices</h2>
+    <p class="section-intro">Each chapter closes with a hands-on practice. These are the core ones, pulled directly from the book.</p>
 
-  <div class="practices-list">
-    <!-- Signal Reset -->
-    <div class="practice-item">
-      <div class="practice-header" onclick="togglePractice(this)">
-        <div class="practice-header-left">
-          <div class="practice-phase-dot" style="background:var(--phase-awareness)"></div>
-          <span class="practice-title">Signal Reset</span>
+    <div class="practices-list" data-accordion="single">
+      <!-- Signal Reset -->
+      <div class="practice-item">
+        <h3>
+          <button class="acc-trigger" type="button" aria-expanded="false" aria-controls="practice-1" id="practice-1-btn">
+            <span class="practice-phase-dot" style="background:var(--phase-awareness)" aria-hidden="true"></span>
+            <span class="practice-title-wrap"><span class="practice-title">Signal Reset</span><span class="practice-meta">5–7 min</span></span>
+            <span class="acc-icon" aria-hidden="true"></span>
+          </button>
+        </h3>
+        <div class="acc-panel practice-body" id="practice-1" role="region" aria-labelledby="practice-1-btn">
+          <div class="practice-body-inner">
+            <p class="practice-when">Use when: Fragmented, scattered, or emotionally reactive</p>
+            <ol class="practice-steps">
+              <li><strong>Ground —</strong> Stand or sit. Feel your feet or hips. Inhale slowly.</li>
+              <li><strong>Breathe Coherently —</strong> Inhale (5 counts) → Hold (2 counts) → Exhale (6 counts). Repeat for 3–5 cycles.</li>
+              <li><strong>Anchor —</strong> Place your palm on your chest or solar plexus. Whisper: "I'm here. I'm listening."</li>
+              <li><strong>Witness the Field —</strong> Notice tingles, breath shifts, posture changes. Let them happen. Let them speak. Don't interpret — just stay.</li>
+            </ol>
+            <p class="practice-affirmation">"I'm here. I'm listening."</p>
+          </div>
         </div>
-        <span class="practice-meta">5–7 min</span>
-        <span class="practice-toggle">+</span>
       </div>
-      <div class="practice-body">
-        <div class="practice-body-inner">
-          <div class="practice-when">Use when: Fragmented, scattered, or emotionally reactive</div>
-          <ol class="practice-steps">
-            <li><strong>Ground —</strong> Stand or sit. Feel your feet or hips. Inhale slowly.</li>
-            <li><strong>Breathe Coherently —</strong> Inhale (5 counts) → Hold (2 counts) → Exhale (6 counts). Repeat for 3–5 cycles.</li>
-            <li><strong>Anchor —</strong> Place your palm on your chest or solar plexus. Whisper: "I'm here. I'm listening."</li>
-            <li><strong>Witness the Field —</strong> Notice tingles, breath shifts, posture changes. Let them happen. Let them speak. Don't interpret — just stay.</li>
-          </ol>
-          <div class="practice-affirmation">"I'm here. I'm listening."</div>
-        </div>
-      </div>
-    </div>
 
-    <!-- Neural Sculpting -->
-    <div class="practice-item">
-      <div class="practice-header" onclick="togglePractice(this)">
-        <div class="practice-header-left">
-          <div class="practice-phase-dot" style="background:var(--phase-awareness)"></div>
-          <span class="practice-title">Neural Sculpting</span>
+      <!-- Neural Sculpting -->
+      <div class="practice-item">
+        <h3>
+          <button class="acc-trigger" type="button" aria-expanded="false" aria-controls="practice-2" id="practice-2-btn">
+            <span class="practice-phase-dot" style="background:var(--phase-awareness)" aria-hidden="true"></span>
+            <span class="practice-title-wrap"><span class="practice-title">Neural Sculpting</span><span class="practice-meta">5–10 min</span></span>
+            <span class="acc-icon" aria-hidden="true"></span>
+          </button>
+        </h3>
+        <div class="acc-panel practice-body" id="practice-2" role="region" aria-labelledby="practice-2-btn">
+          <div class="practice-body-inner">
+            <p class="practice-when">Use when: Rewriting a belief, shifting a habit, or reclaiming possibility</p>
+            <ol class="practice-steps">
+              <li><strong>Presence —</strong> Sit upright. Breathe slowly. Place one hand on your chest, one on your belly.</li>
+              <li><strong>Name the Old Pattern —</strong> Whisper it: "I always tense here." "I collapse here." No shame — just clarity.</li>
+              <li><strong>Visualize the New Signal —</strong> Breathe into the version of you who doesn't collapse, who doesn't brace. Feel their posture, breath, voice. Embody it for 2–3 minutes.</li>
+              <li><strong>Anchor It —</strong> Touch your heart or tap your thigh. Repeat: "I'm re-patterning. This is safe now."</li>
+            </ol>
+            <p class="practice-affirmation">"This becomes my new default."</p>
+          </div>
         </div>
-        <span class="practice-meta">5–10 min</span>
-        <span class="practice-toggle">+</span>
       </div>
-      <div class="practice-body">
-        <div class="practice-body-inner">
-          <div class="practice-when">Use when: Rewriting a belief, shifting a habit, or reclaiming possibility</div>
-          <ol class="practice-steps">
-            <li><strong>Presence —</strong> Sit upright. Breathe slowly. Place one hand on your chest, one on your belly.</li>
-            <li><strong>Name the Old Pattern —</strong> Whisper it: "I always tense here." "I collapse here." No shame — just clarity.</li>
-            <li><strong>Visualize the New Signal —</strong> Breathe into the version of you who doesn't collapse, who doesn't brace. Feel their posture, breath, voice. Embody it for 2–3 minutes.</li>
-            <li><strong>Anchor It —</strong> Touch your heart or tap your thigh. Repeat: "I'm re-patterning. This is safe now."</li>
-          </ol>
-          <div class="practice-affirmation">"This becomes my new default."</div>
-        </div>
-      </div>
-    </div>
 
-    <!-- Coherence Meditation Protocol -->
-    <div class="practice-item">
-      <div class="practice-header" onclick="togglePractice(this)">
-        <div class="practice-header-left">
-          <div class="practice-phase-dot" style="background:var(--phase-coherence)"></div>
-          <span class="practice-title">Coherence Meditation Protocol</span>
+      <!-- Coherence Meditation Protocol -->
+      <div class="practice-item">
+        <h3>
+          <button class="acc-trigger" type="button" aria-expanded="false" aria-controls="practice-3" id="practice-3-btn">
+            <span class="practice-phase-dot" style="background:var(--phase-coherence)" aria-hidden="true"></span>
+            <span class="practice-title-wrap"><span class="practice-title">Coherence Meditation Protocol</span><span class="practice-meta">10–15 min</span></span>
+            <span class="acc-icon" aria-hidden="true"></span>
+          </button>
+        </h3>
+        <div class="acc-panel practice-body" id="practice-3" role="region" aria-labelledby="practice-3-btn">
+          <div class="practice-body-inner">
+            <p class="practice-when">Use when: Fragmented, reactive, or preparing to create something meaningful</p>
+            <ol class="practice-steps">
+              <li><strong>Still the Body —</strong> Sit upright but relaxed. Let your eyes soften or close.</li>
+              <li><strong>Coherent Breathing —</strong> Inhale through the nose (5 counts), exhale through mouth or nose (5–6 counts). Breathe into the area of the heart. Continue for 2–3 minutes.</li>
+              <li><strong>Emotional Elevation —</strong> Recall a moment of gratitude, love, awe, or peace. Let it grow. Stay with this feeling for 3–5 minutes.</li>
+              <li><strong>Direct the Signal —</strong> Introduce a simple intention: "I am available for clarity." "I radiate peace." Let the phrase ride the field.</li>
+              <li><strong>Integration —</strong> Sit in silence. Let your system absorb. Open your eyes slowly.</li>
+            </ol>
+            <p class="practice-affirmation">"Clear thought + elevated emotion + coherence = transformation."</p>
+          </div>
         </div>
-        <span class="practice-meta">10–15 min</span>
-        <span class="practice-toggle">+</span>
       </div>
-      <div class="practice-body">
-        <div class="practice-body-inner">
-          <div class="practice-when">Use when: Fragmented, reactive, or preparing to create something meaningful</div>
-          <ol class="practice-steps">
-            <li><strong>Still the Body —</strong> Sit upright but relaxed. Let your eyes soften or close.</li>
-            <li><strong>Coherent Breathing —</strong> Inhale through the nose (5 counts), exhale through mouth or nose (5–6 counts). Breathe into the area of the heart. Continue for 2–3 minutes.</li>
-            <li><strong>Emotional Elevation —</strong> Recall a moment of gratitude, love, awe, or peace. Let it grow. Stay with this feeling for 3–5 minutes.</li>
-            <li><strong>Direct the Signal —</strong> Introduce a simple intention: "I am available for clarity." "I radiate peace." Let the phrase ride the field.</li>
-            <li><strong>Integration —</strong> Sit in silence. Let your system absorb. Open your eyes slowly.</li>
-          </ol>
-          <div class="practice-affirmation">"Clear thought + elevated emotion + coherence = transformation."</div>
-        </div>
-      </div>
-    </div>
 
-    <!-- The Alchemical Pause -->
-    <div class="practice-item">
-      <div class="practice-header" onclick="togglePractice(this)">
-        <div class="practice-header-left">
-          <div class="practice-phase-dot" style="background:var(--phase-coherence)"></div>
-          <span class="practice-title">The Alchemical Pause</span>
+      <!-- The Alchemical Pause -->
+      <div class="practice-item">
+        <h3>
+          <button class="acc-trigger" type="button" aria-expanded="false" aria-controls="practice-4" id="practice-4-btn">
+            <span class="practice-phase-dot" style="background:var(--phase-coherence)" aria-hidden="true"></span>
+            <span class="practice-title-wrap"><span class="practice-title">The Alchemical Pause</span><span class="practice-meta">5–7 min</span></span>
+            <span class="acc-icon" aria-hidden="true"></span>
+          </button>
+        </h3>
+        <div class="acc-panel practice-body" id="practice-4" role="region" aria-labelledby="practice-4-btn">
+          <div class="practice-body-inner">
+            <p class="practice-when">Use when: Emotionally reactive, overwhelmed, or looped</p>
+            <ol class="practice-steps">
+              <li><strong>Recognize the Lead —</strong> Name what you're feeling — not to fix, but to hold. "This is tension." "This is grief." Say aloud: "I will not abandon myself here."</li>
+              <li><strong>Enter the Fire —</strong> Place one hand on your chest, one on your lower belly. Breathe into the space where the emotion lives. Exhale longer than you inhale. If you feel the urge to cry, shake, or sigh — let it happen.</li>
+              <li><strong>Witness the Change —</strong> Has the temperature shifted? Has the tightness softened? Say: "This is transmutation. I am safe here."</li>
+              <li><strong>Seal the Practice —</strong> Stand or sit tall. Visualize golden light surrounding your field. Whisper: "I now hold this differently."</li>
+            </ol>
+            <p class="practice-affirmation">"From this, I rise wiser."</p>
+          </div>
         </div>
-        <span class="practice-meta">5–7 min</span>
-        <span class="practice-toggle">+</span>
       </div>
-      <div class="practice-body">
-        <div class="practice-body-inner">
-          <div class="practice-when">Use when: Emotionally reactive, overwhelmed, or looped</div>
-          <ol class="practice-steps">
-            <li><strong>Recognize the Lead —</strong> Name what you're feeling — not to fix, but to hold. "This is tension." "This is grief." Say aloud: "I will not abandon myself here."</li>
-            <li><strong>Enter the Fire —</strong> Place one hand on your chest, one on your lower belly. Breathe into the space where the emotion lives. Exhale longer than you inhale. If you feel the urge to cry, shake, or sigh — let it happen.</li>
-            <li><strong>Witness the Change —</strong> Has the temperature shifted? Has the tightness softened? Say: "This is transmutation. I am safe here."</li>
-            <li><strong>Seal the Practice —</strong> Stand or sit tall. Visualize golden light surrounding your field. Whisper: "I now hold this differently."</li>
-          </ol>
-          <div class="practice-affirmation">"From this, I rise wiser."</div>
-        </div>
-      </div>
-    </div>
 
-    <!-- Day Design Check-In -->
-    <div class="practice-item">
-      <div class="practice-header" onclick="togglePractice(this)">
-        <div class="practice-header-left">
-          <div class="practice-phase-dot" style="background:var(--phase-environment)"></div>
-          <span class="practice-title">Day Design Check-In</span>
+      <!-- Day Design Check-In -->
+      <div class="practice-item">
+        <h3>
+          <button class="acc-trigger" type="button" aria-expanded="false" aria-controls="practice-5" id="practice-5-btn">
+            <span class="practice-phase-dot" style="background:var(--phase-environment)" aria-hidden="true"></span>
+            <span class="practice-title-wrap"><span class="practice-title">Day Design Check-In</span><span class="practice-meta">Weekly</span></span>
+            <span class="acc-icon" aria-hidden="true"></span>
+          </button>
+        </h3>
+        <div class="acc-panel practice-body" id="practice-5" role="region" aria-labelledby="practice-5-btn">
+          <div class="practice-body-inner">
+            <p class="practice-when">Frequency: Once weekly (Sunday evening)</p>
+            <ol class="practice-steps">
+              <li><strong>Reflect —</strong> When during the week did I feel most aligned? When did I feel most dysregulated?</li>
+              <li><strong>Adjust —</strong> What sacred "bookends" can I commit to? Which transitions need more ritual?</li>
+              <li><strong>Reset —</strong> Write a single word for your next week's anchor: "Clarity." "Softness." "Pace." Let that word become the rhythm-setter.</li>
+            </ol>
+            <p class="practice-affirmation">"You don't need a plan. You need a pulse."</p>
+          </div>
         </div>
-        <span class="practice-meta">Weekly</span>
-        <span class="practice-toggle">+</span>
       </div>
-      <div class="practice-body">
-        <div class="practice-body-inner">
-          <div class="practice-when">Frequency: Once weekly (Sunday evening)</div>
-          <ol class="practice-steps">
-            <li><strong>Reflect —</strong> When during the week did I feel most aligned? When did I feel most dysregulated?</li>
-            <li><strong>Adjust —</strong> What sacred "bookends" can I commit to? Which transitions need more ritual?</li>
-            <li><strong>Reset —</strong> Write a single word for your next week's anchor: "Clarity." "Softness." "Pace." Let that word become the rhythm-setter.</li>
-          </ol>
-          <div class="practice-affirmation">"You don't need a plan. You need a pulse."</div>
-        </div>
-      </div>
-    </div>
 
-    <!-- Evening Integration -->
-    <div class="practice-item">
-      <div class="practice-header" onclick="togglePractice(this)">
-        <div class="practice-header-left">
-          <div class="practice-phase-dot" style="background:var(--phase-regulation)"></div>
-          <span class="practice-title">Evening Integration</span>
-        </div>
-        <span class="practice-meta">4–8 min</span>
-        <span class="practice-toggle">+</span>
-      </div>
-      <div class="practice-body">
-        <div class="practice-body-inner">
-          <div class="practice-when">Purpose: Downshift from stimulation and close your day in coherence</div>
-          <ol class="practice-steps">
-            <li><strong>Settle —</strong> Lie down or sit in stillness. Turn off all tech; use candlelight or darkness.</li>
-            <li><strong>Connect —</strong> Place one hand on your belly, one on your heart. Inhale slowly… Exhale like you're softening the whole day.</li>
-            <li><strong>Reflect —</strong> "What did I release today?" "What did I reclaim?"</li>
-            <li><strong>Hum —</strong> Optional: hum gently on the exhale. Let silence finish the session.</li>
-          </ol>
-          <div class="practice-affirmation">"Breath is not a technique. It's a return."</div>
+      <!-- Evening Integration -->
+      <div class="practice-item">
+        <h3>
+          <button class="acc-trigger" type="button" aria-expanded="false" aria-controls="practice-6" id="practice-6-btn">
+            <span class="practice-phase-dot" style="background:var(--phase-regulation)" aria-hidden="true"></span>
+            <span class="practice-title-wrap"><span class="practice-title">Evening Integration</span><span class="practice-meta">4–8 min</span></span>
+            <span class="acc-icon" aria-hidden="true"></span>
+          </button>
+        </h3>
+        <div class="acc-panel practice-body" id="practice-6" role="region" aria-labelledby="practice-6-btn">
+          <div class="practice-body-inner">
+            <p class="practice-when">Purpose: Downshift from stimulation and close your day in coherence</p>
+            <ol class="practice-steps">
+              <li><strong>Settle —</strong> Lie down or sit in stillness. Turn off all tech; use candlelight or darkness.</li>
+              <li><strong>Connect —</strong> Place one hand on your belly, one on your heart. Inhale slowly… Exhale like you're softening the whole day.</li>
+              <li><strong>Reflect —</strong> "What did I release today?" "What did I reclaim?"</li>
+              <li><strong>Hum —</strong> Optional: hum gently on the exhale. Let silence finish the session.</li>
+            </ol>
+            <p class="practice-affirmation">"Breath is not a technique. It's a return."</p>
+          </div>
         </div>
       </div>
     </div>
@@ -1295,283 +968,343 @@ footer a:hover { color: var(--gold); }
 </section>
 
 <!-- ═══ SIGNAL CHECK ═══ -->
-<section id="signal-check">
-  <div>
-    <div class="section-label">Self-Assessment</div>
-    <h2 class="section-title">Coherence Signal Check</h2>
+<section id="signal-check" class="band band-cream" aria-labelledby="signal-title">
+  <div class="wrap-narrow">
+    <p class="section-label">Self-Assessment</p>
+    <h2 class="section-title" id="signal-title">Coherence Signal Check</h2>
     <p class="section-intro">Eight questions. No scores to chase. Just an honest read on where you stand today.</p>
 
-    <div id="signal-questions">
-      <div class="signal-question" data-q="0">
-        <div class="sq-text">When I wake up, my first instinct is to…</div>
+    <form class="signal-form" id="signal-questions" onsubmit="return false;">
+      <fieldset class="signal-question" data-q="0">
+        <legend><span class="sq-num" aria-hidden="true">01</span><span class="sq-text">When I wake up, my first instinct is to…</span></legend>
         <div class="sq-options">
-          <div class="sq-option" data-val="3" onclick="selectOption(this)">Breathe or stretch</div>
-          <div class="sq-option" data-val="2" onclick="selectOption(this)">Lie still and ease in</div>
-          <div class="sq-option" data-val="1" onclick="selectOption(this)">Check my phone</div>
-          <div class="sq-option" data-val="0" onclick="selectOption(this)">Already anxious</div>
+          <label class="sq-option"><input type="radio" name="sq0" value="3"><span>Breathe or stretch</span></label>
+          <label class="sq-option"><input type="radio" name="sq0" value="2"><span>Lie still and ease in</span></label>
+          <label class="sq-option"><input type="radio" name="sq0" value="1"><span>Check my phone</span></label>
+          <label class="sq-option"><input type="radio" name="sq0" value="0"><span>Already anxious</span></label>
         </div>
-      </div>
-      <div class="signal-question" data-q="1">
-        <div class="sq-text">How often do I pause to breathe intentionally during my day?</div>
+      </fieldset>
+      <fieldset class="signal-question" data-q="1">
+        <legend><span class="sq-num" aria-hidden="true">02</span><span class="sq-text">How often do I pause to breathe intentionally during my day?</span></legend>
         <div class="sq-options">
-          <div class="sq-option" data-val="3" onclick="selectOption(this)">Multiple times — it's built in</div>
-          <div class="sq-option" data-val="2" onclick="selectOption(this)">Once or twice</div>
-          <div class="sq-option" data-val="1" onclick="selectOption(this)">Rarely unless stressed</div>
-          <div class="sq-option" data-val="0" onclick="selectOption(this)">Almost never</div>
+          <label class="sq-option"><input type="radio" name="sq1" value="3"><span>Multiple times — it's built in</span></label>
+          <label class="sq-option"><input type="radio" name="sq1" value="2"><span>Once or twice</span></label>
+          <label class="sq-option"><input type="radio" name="sq1" value="1"><span>Rarely unless stressed</span></label>
+          <label class="sq-option"><input type="radio" name="sq1" value="0"><span>Almost never</span></label>
         </div>
-      </div>
-      <div class="signal-question" data-q="2">
-        <div class="sq-text">My relationship with food this week has been…</div>
+      </fieldset>
+      <fieldset class="signal-question" data-q="2">
+        <legend><span class="sq-num" aria-hidden="true">03</span><span class="sq-text">My relationship with food this week has been…</span></legend>
         <div class="sq-options">
-          <div class="sq-option" data-val="3" onclick="selectOption(this)">Nourishing and intentional</div>
-          <div class="sq-option" data-val="2" onclick="selectOption(this)">Mostly mindful</div>
-          <div class="sq-option" data-val="1" onclick="selectOption(this)">Rushed or reactive</div>
-          <div class="sq-option" data-val="0" onclick="selectOption(this)">Survival mode</div>
+          <label class="sq-option"><input type="radio" name="sq2" value="3"><span>Nourishing and intentional</span></label>
+          <label class="sq-option"><input type="radio" name="sq2" value="2"><span>Mostly mindful</span></label>
+          <label class="sq-option"><input type="radio" name="sq2" value="1"><span>Rushed or reactive</span></label>
+          <label class="sq-option"><input type="radio" name="sq2" value="0"><span>Survival mode</span></label>
         </div>
-      </div>
-      <div class="signal-question" data-q="3">
-        <div class="sq-text">When I encounter stress, my body tends to…</div>
+      </fieldset>
+      <fieldset class="signal-question" data-q="3">
+        <legend><span class="sq-num" aria-hidden="true">04</span><span class="sq-text">When I encounter stress, my body tends to…</span></legend>
         <div class="sq-options">
-          <div class="sq-option" data-val="3" onclick="selectOption(this)">Soften and breathe</div>
-          <div class="sq-option" data-val="2" onclick="selectOption(this)">Notice, then regulate</div>
-          <div class="sq-option" data-val="1" onclick="selectOption(this)">Brace and push through</div>
-          <div class="sq-option" data-val="0" onclick="selectOption(this)">Freeze or spiral</div>
+          <label class="sq-option"><input type="radio" name="sq3" value="3"><span>Soften and breathe</span></label>
+          <label class="sq-option"><input type="radio" name="sq3" value="2"><span>Notice, then regulate</span></label>
+          <label class="sq-option"><input type="radio" name="sq3" value="1"><span>Brace and push through</span></label>
+          <label class="sq-option"><input type="radio" name="sq3" value="0"><span>Freeze or spiral</span></label>
         </div>
-      </div>
-      <div class="signal-question" data-q="4">
-        <div class="sq-text">How connected do I feel to something larger — ancestors, nature, spirit, or community?</div>
+      </fieldset>
+      <fieldset class="signal-question" data-q="4">
+        <legend><span class="sq-num" aria-hidden="true">05</span><span class="sq-text">How connected do I feel to something larger — ancestors, nature, spirit, or community?</span></legend>
         <div class="sq-options">
-          <div class="sq-option" data-val="3" onclick="selectOption(this)">Deeply and regularly</div>
-          <div class="sq-option" data-val="2" onclick="selectOption(this)">Occasionally grounded</div>
-          <div class="sq-option" data-val="1" onclick="selectOption(this)">I feel isolated more than not</div>
-          <div class="sq-option" data-val="0" onclick="selectOption(this)">Disconnected</div>
+          <label class="sq-option"><input type="radio" name="sq4" value="3"><span>Deeply and regularly</span></label>
+          <label class="sq-option"><input type="radio" name="sq4" value="2"><span>Occasionally grounded</span></label>
+          <label class="sq-option"><input type="radio" name="sq4" value="1"><span>I feel isolated more than not</span></label>
+          <label class="sq-option"><input type="radio" name="sq4" value="0"><span>Disconnected</span></label>
         </div>
-      </div>
-      <div class="signal-question" data-q="5">
-        <div class="sq-text">My screen time in the evening…</div>
+      </fieldset>
+      <fieldset class="signal-question" data-q="5">
+        <legend><span class="sq-num" aria-hidden="true">06</span><span class="sq-text">My screen time in the evening…</span></legend>
         <div class="sq-options">
-          <div class="sq-option" data-val="3" onclick="selectOption(this)">Winds down well before bed</div>
-          <div class="sq-option" data-val="2" onclick="selectOption(this)">I limit it somewhat</div>
-          <div class="sq-option" data-val="1" onclick="selectOption(this)">Goes until I fall asleep</div>
-          <div class="sq-option" data-val="0" onclick="selectOption(this)">I can't stop scrolling</div>
+          <label class="sq-option"><input type="radio" name="sq5" value="3"><span>Winds down well before bed</span></label>
+          <label class="sq-option"><input type="radio" name="sq5" value="2"><span>I limit it somewhat</span></label>
+          <label class="sq-option"><input type="radio" name="sq5" value="1"><span>Goes until I fall asleep</span></label>
+          <label class="sq-option"><input type="radio" name="sq5" value="0"><span>I can't stop scrolling</span></label>
         </div>
-      </div>
-      <div class="signal-question" data-q="6">
-        <div class="sq-text">The last time I felt truly still — in body and mind — was…</div>
+      </fieldset>
+      <fieldset class="signal-question" data-q="6">
+        <legend><span class="sq-num" aria-hidden="true">07</span><span class="sq-text">The last time I felt truly still — in body and mind — was…</span></legend>
         <div class="sq-options">
-          <div class="sq-option" data-val="3" onclick="selectOption(this)">Today or yesterday</div>
-          <div class="sq-option" data-val="2" onclick="selectOption(this)">This week</div>
-          <div class="sq-option" data-val="1" onclick="selectOption(this)">I can't remember</div>
-          <div class="sq-option" data-val="0" onclick="selectOption(this)">Stillness feels impossible</div>
+          <label class="sq-option"><input type="radio" name="sq6" value="3"><span>Today or yesterday</span></label>
+          <label class="sq-option"><input type="radio" name="sq6" value="2"><span>This week</span></label>
+          <label class="sq-option"><input type="radio" name="sq6" value="1"><span>I can't remember</span></label>
+          <label class="sq-option"><input type="radio" name="sq6" value="0"><span>Stillness feels impossible</span></label>
         </div>
-      </div>
-      <div class="signal-question" data-q="7">
-        <div class="sq-text">If I described my overall state right now in one word, it would be…</div>
+      </fieldset>
+      <fieldset class="signal-question" data-q="7">
+        <legend><span class="sq-num" aria-hidden="true">08</span><span class="sq-text">If I described my overall state right now in one word, it would be…</span></legend>
         <div class="sq-options">
-          <div class="sq-option" data-val="3" onclick="selectOption(this)">Coherent</div>
-          <div class="sq-option" data-val="2" onclick="selectOption(this)">Seeking</div>
-          <div class="sq-option" data-val="1" onclick="selectOption(this)">Fragmented</div>
-          <div class="sq-option" data-val="0" onclick="selectOption(this)">Exhausted</div>
+          <label class="sq-option"><input type="radio" name="sq7" value="3"><span>Coherent</span></label>
+          <label class="sq-option"><input type="radio" name="sq7" value="2"><span>Seeking</span></label>
+          <label class="sq-option"><input type="radio" name="sq7" value="1"><span>Fragmented</span></label>
+          <label class="sq-option"><input type="radio" name="sq7" value="0"><span>Exhausted</span></label>
         </div>
-      </div>
-    </div>
+      </fieldset>
 
-    <div class="signal-submit">
-      <button class="btn btn-primary" onclick="showSignalResult()" id="signal-btn" aria-disabled="true" style="opacity:0.4;pointer-events:none;">Read My Signal</button>
-    </div>
+      <div class="signal-submit">
+        <button class="btn btn-earth" type="button" id="signal-btn" disabled aria-describedby="signal-progress">Read My Signal</button>
+        <p class="signal-progress mono" id="signal-progress"><span id="signal-count">0</span> of 8 answered</p>
+        <noscript><p class="signal-progress">The Signal Check needs JavaScript to show your result.</p></noscript>
+      </div>
+    </form>
 
-    <div class="signal-result" id="signal-result"></div>
+    <div class="signal-result" id="signal-result" role="status" aria-live="polite" aria-atomic="true" tabindex="-1"></div>
   </div>
 </section>
 
 <!-- ═══ DISCUSSION ═══ -->
-<section id="discussion">
-  <div class="section-label">Book Club & Reflection</div>
-  <h2 class="section-title">Discussion Guide</h2>
-  <p class="section-intro">For book clubs, reading groups, or your own journal. Organized by the five phases.</p>
+<section id="discussion" class="band" aria-labelledby="discussion-title">
+  <div class="wrap-narrow">
+    <p class="section-label">Book Club &amp; Reflection</p>
+    <h2 class="section-title" id="discussion-title">Discussion Guide</h2>
+    <p class="section-intro">For book clubs, reading groups, or your own journal. Organized by the five phases.</p>
 
-  <div class="discussion-part">
-    <div class="discussion-header" onclick="toggleDiscussion(this)">
-      <span class="discussion-part-title">Part I — Awareness (Chapters 1–4)</span>
-      <span class="discussion-toggle">+</span>
-    </div>
-    <div class="discussion-body">
-      <div class="discussion-body-inner">
-        <ol>
-          <li>The book argues that perception is creative, not passive. How does this reframe your understanding of daily attention?</li>
-          <li>What "old pattern" (from the Neural Sculpting practice) resonated most with you? Where in your body do you feel it?</li>
-          <li>How does the idea that your nervous system decides safety before your conscious mind challenge how you approach stress?</li>
-          <li>The book references intergenerational epigenetic trauma. What patterns in your family line might you be carrying — and what might you be healing?</li>
-        </ol>
+    <div class="discussion-list" data-accordion="multi">
+      <div class="discussion-part">
+        <h3>
+          <button class="acc-trigger" type="button" aria-expanded="false" aria-controls="discussion-1" id="discussion-1-btn">
+            <span class="discussion-part-title">Part I&nbsp;— Awareness <span class="mono">(Chapters 1–4)</span></span>
+            <span class="acc-icon" aria-hidden="true"></span>
+          </button>
+        </h3>
+        <div class="acc-panel discussion-body" id="discussion-1" role="region" aria-labelledby="discussion-1-btn">
+          <div class="discussion-body-inner">
+            <ol>
+              <li>The book argues that perception is creative, not passive. How does this reframe your understanding of daily attention?</li>
+              <li>What "old pattern" (from the Neural Sculpting practice) resonated most with you? Where in your body do you feel it?</li>
+              <li>How does the idea that your nervous system decides safety before your conscious mind challenge how you approach stress?</li>
+              <li>The book references intergenerational epigenetic trauma. What patterns in your family line might you be carrying — and what might you be healing?</li>
+            </ol>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
 
-  <div class="discussion-part">
-    <div class="discussion-header" onclick="toggleDiscussion(this)">
-      <span class="discussion-part-title">Part II — Regulation (Chapters 5–8)</span>
-      <span class="discussion-toggle">+</span>
-    </div>
-    <div class="discussion-body">
-      <div class="discussion-body-inner">
-        <ol>
-          <li>What's your current relationship with food — is it nourishment, transaction, or something else? How could ritual change that?</li>
-          <li>The gut–brain axis suggests your microbiome shapes your mood. Has anything you've eaten recently noticeably shifted your emotional state?</li>
-          <li>Which resonates more with you right now — movement, breath, or stillness? Why do you think that is?</li>
-          <li>Have you ever used adaptogens or herbs intentionally? What was your experience with trusting plant-based support?</li>
-        </ol>
+      <div class="discussion-part">
+        <h3>
+          <button class="acc-trigger" type="button" aria-expanded="false" aria-controls="discussion-2" id="discussion-2-btn">
+            <span class="discussion-part-title">Part II&nbsp;— Regulation <span class="mono">(Chapters 5–8)</span></span>
+            <span class="acc-icon" aria-hidden="true"></span>
+          </button>
+        </h3>
+        <div class="acc-panel discussion-body" id="discussion-2" role="region" aria-labelledby="discussion-2-btn">
+          <div class="discussion-body-inner">
+            <ol>
+              <li>What's your current relationship with food — is it nourishment, transaction, or something else? How could ritual change that?</li>
+              <li>The gut–brain axis suggests your microbiome shapes your mood. Has anything you've eaten recently noticeably shifted your emotional state?</li>
+              <li>Which resonates more with you right now — movement, breath, or stillness? Why do you think that is?</li>
+              <li>Have you ever used adaptogens or herbs intentionally? What was your experience with trusting plant-based support?</li>
+            </ol>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
 
-  <div class="discussion-part">
-    <div class="discussion-header" onclick="toggleDiscussion(this)">
-      <span class="discussion-part-title">Part III — Lineage (Chapters 9–11)</span>
-      <span class="discussion-toggle">+</span>
-    </div>
-    <div class="discussion-body">
-      <div class="discussion-body-inner">
-        <ol>
-          <li>What does "lineage" mean to you — biologically, culturally, or spiritually? Is it something you actively engage with?</li>
-          <li>The book describes ceremony as recalibration, not luxury. What rituals — formal or informal — help you feel most connected?</li>
-          <li>Have your dreams ever carried messages or patterns that felt ancestral or archetypal? How did you respond?</li>
-          <li>What would it mean to "carry the name" in your own context — to anchor a lineage forward with intention?</li>
-        </ol>
+      <div class="discussion-part">
+        <h3>
+          <button class="acc-trigger" type="button" aria-expanded="false" aria-controls="discussion-3" id="discussion-3-btn">
+            <span class="discussion-part-title">Part III&nbsp;— Lineage <span class="mono">(Chapters 9–11)</span></span>
+            <span class="acc-icon" aria-hidden="true"></span>
+          </button>
+        </h3>
+        <div class="acc-panel discussion-body" id="discussion-3" role="region" aria-labelledby="discussion-3-btn">
+          <div class="discussion-body-inner">
+            <ol>
+              <li>What does "lineage" mean to you — biologically, culturally, or spiritually? Is it something you actively engage with?</li>
+              <li>The book describes ceremony as recalibration, not luxury. What rituals — formal or informal — help you feel most connected?</li>
+              <li>Have your dreams ever carried messages or patterns that felt ancestral or archetypal? How did you respond?</li>
+              <li>What would it mean to "carry the name" in your own context — to anchor a lineage forward with intention?</li>
+            </ol>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
 
-  <div class="discussion-part">
-    <div class="discussion-header" onclick="toggleDiscussion(this)">
-      <span class="discussion-part-title">Part IV — Environment (Chapters 12–14)</span>
-      <span class="discussion-toggle">+</span>
-    </div>
-    <div class="discussion-body">
-      <div class="discussion-body-inner">
-        <ol>
-          <li>How aligned is your daily schedule with your natural circadian rhythm? What's the biggest disconnect?</li>
-          <li>The chapter on digital nervous systems argues that your attention is not a commodity. What would reclaiming your digital presence look like?</li>
-          <li>Have you ever noticed a shift in your energy, mood, or clarity after changing something in your physical environment?</li>
-          <li>What does "energetic hygiene" mean to you in practice — and does it feel accessible or foreign?</li>
-        </ol>
+      <div class="discussion-part">
+        <h3>
+          <button class="acc-trigger" type="button" aria-expanded="false" aria-controls="discussion-4" id="discussion-4-btn">
+            <span class="discussion-part-title">Part IV&nbsp;— Environment <span class="mono">(Chapters 12–14)</span></span>
+            <span class="acc-icon" aria-hidden="true"></span>
+          </button>
+        </h3>
+        <div class="acc-panel discussion-body" id="discussion-4" role="region" aria-labelledby="discussion-4-btn">
+          <div class="discussion-body-inner">
+            <ol>
+              <li>How aligned is your daily schedule with your natural circadian rhythm? What's the biggest disconnect?</li>
+              <li>The chapter on digital nervous systems argues that your attention is not a commodity. What would reclaiming your digital presence look like?</li>
+              <li>Have you ever noticed a shift in your energy, mood, or clarity after changing something in your physical environment?</li>
+              <li>What does "energetic hygiene" mean to you in practice — and does it feel accessible or foreign?</li>
+            </ol>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
 
-  <div class="discussion-part">
-    <div class="discussion-header" onclick="toggleDiscussion(this)">
-      <span class="discussion-part-title">Part V — Coherence (Chapters 15–17)</span>
-      <span class="discussion-toggle">+</span>
-    </div>
-    <div class="discussion-body">
-      <div class="discussion-body-inner">
-        <ol>
-          <li>The book defines coherence as brainwaves, heart rhythms, breath cycles, and emotional tone moving in synchrony. When was the last time you felt that alignment?</li>
-          <li>What does "designing a day of empowerment" look like for your actual life — not an ideal one?</li>
-          <li>Alchemy as Practice reframes emotional pain as transmutation material. Which emotion are you currently being asked to transform?</li>
-          <li>The conclusion says "your presence becomes medicine." Do you believe your internal state affects those around you? How have you seen it?</li>
-          <li>After reading, what single shift — in breath, attention, or ritual — are you most compelled to try?</li>
-        </ol>
+      <div class="discussion-part">
+        <h3>
+          <button class="acc-trigger" type="button" aria-expanded="false" aria-controls="discussion-5" id="discussion-5-btn">
+            <span class="discussion-part-title">Part V&nbsp;— Coherence <span class="mono">(Chapters 15–17)</span></span>
+            <span class="acc-icon" aria-hidden="true"></span>
+          </button>
+        </h3>
+        <div class="acc-panel discussion-body" id="discussion-5" role="region" aria-labelledby="discussion-5-btn">
+          <div class="discussion-body-inner">
+            <ol>
+              <li>The book defines coherence as brainwaves, heart rhythms, breath cycles, and emotional tone moving in synchrony. When was the last time you felt that alignment?</li>
+              <li>What does "designing a day of empowerment" look like for your actual life — not an ideal one?</li>
+              <li>Alchemy as Practice reframes emotional pain as transmutation material. Which emotion are you currently being asked to transform?</li>
+              <li>The conclusion says "your presence becomes medicine." Do you believe your internal state affects those around you? How have you seen it?</li>
+              <li>After reading, what single shift — in breath, attention, or ritual — are you most compelled to try?</li>
+            </ol>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ═══ AUTHOR ═══ -->
-<section id="author">
-  <div>
-    <div class="section-label">About the Author</div>
-    <h2 class="section-title">Daniel D. Calloway III</h2>
-    <div class="author-bio">
-      <p>Daniel D. Calloway III is an attorney, researcher, and member of the Narragansett Indian Tribe. With over fifteen years in legal, regulatory, and compliance work across financial services, technology, and private equity, he brings a practitioner's discipline to the study of human coherence.</p>
-      <br>
-      <p><em>Callo's Way: The Art of Conscious Empowerment</em> is the first volume of the Callo's Way Coherence Series, published by Dando, LLC. His second book, <em>The Dependency Design</em>, examines technology's displacement of authentic human connection. His research on SSRN and arXiv covers AI governance, legal AI evaluation, and the hegemonic function of artificial intelligence.</p>
+<section id="author" class="band band-earth on-dark" aria-labelledby="author-title">
+  <div class="wrap author-grid">
+    <div>
+      <p class="section-label">About the Author</p>
+      <h2 class="section-title" id="author-title">Daniel D. Calloway III</h2>
+      <div class="author-bio">
+        <p>Daniel D. Calloway III is an attorney, researcher, and member of the Narragansett Indian Tribe. With over fifteen years in legal, regulatory, and compliance work across financial services, technology, and private equity, he brings a practitioner's discipline to the study of human coherence.</p>
+        <p><em>Callo's Way: The Art of Conscious Empowerment</em> is the first volume of the Callo's Way Coherence Series, published by Dando, LLC. His second book, <em>The Dependency Design</em>, examines technology's displacement of authentic human connection. His research on SSRN and arXiv covers AI governance, legal AI evaluation, and the hegemonic function of artificial intelligence.</p>
+      </div>
+      <ul class="author-links">
+        <li><a href="https://dandollc.github.io" target="_blank" rel="noopener">Personal Site</a></li>
+        <li><a href="https://dandollc.github.io/dando/" target="_blank" rel="noopener">DANDO Advisory</a></li>
+        <li><a href="https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=7682344" target="_blank" rel="noopener">SSRN</a></li>
+        <li><a href="https://www.linkedin.com/in/callowayesq" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://www.amazon.com/dp/B0FJQRRY2C" target="_blank" rel="noopener">Amazon Print</a></li>
+        <li><a href="https://www.amazon.com/dp/B0FJQGDC87" target="_blank" rel="noopener">Kindle</a></li>
+        <li><a href="https://callosway.gumroad.com/l/uqqcu" target="_blank" rel="noopener">Gumroad</a></li>
+      </ul>
     </div>
-    <div class="author-links">
-      <a href="https://dandollc.github.io" target="_blank" rel="noopener">Personal Site</a>
-      <a href="https://dandollc.github.io/dando/" target="_blank" rel="noopener">DANDO Advisory</a>
-      <a href="https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=7682344" target="_blank" rel="noopener">SSRN</a>
-      <a href="https://www.linkedin.com/in/callowayesq" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://www.amazon.com/dp/B0FJQRRY2C" target="_blank" rel="noopener">Amazon Print</a>
-      <a href="https://www.amazon.com/dp/B0FJQGDC87" target="_blank" rel="noopener">Kindle</a>
-      <a href="https://callosway.gumroad.com/l/uqqcu" target="_blank" rel="noopener">Gumroad</a>
+    <div class="author-aside">
+      <a class="aside-card" href="https://dandollc.github.io/thedependencydesign/">
+        <span class="aside-kicker">Also by the author</span>
+        <span class="aside-title">The Dependency Design</span>
+        <span class="aside-line">A standalone book, with its own companion site.</span>
+        <span class="aside-go" aria-hidden="true">Visit the site →</span>
+      </a>
+      <a class="aside-card" href="https://dandollc.github.io/dando/#contact">
+        <span class="aside-kicker">DANDO LLC</span>
+        <span class="aside-title">Work with DANDO</span>
+        <span class="aside-line">Advisory for legal, compliance and risk teams adopting AI.</span>
+        <span class="aside-go" aria-hidden="true">Start a conversation →</span>
+      </a>
     </div>
   </div>
 </section>
 
 <!-- ═══ NEWSLETTER ═══ -->
-<section id="newsletter">
-  <div>
-    <div class="section-label">Subscribe</div>
-    <h2 class="section-title">From the Desk</h2>
+<section id="newsletter" class="band band-cream" aria-labelledby="newsletter-title">
+  <div class="newsletter-inner">
+    <p class="section-label">Subscribe</p>
+    <h2 class="section-title" id="newsletter-title">From the Desk</h2>
     <p class="newsletter-desc">Occasional writing on how systems&mdash;legal, technological, institutional&mdash;shape the way we live.</p>
     <!-- Kit embed form -->
     <script async data-uid="32248839c8" src="https://dando-llc.kit.com/32248839c8/index.js"></script>
   </div>
 </section>
 
+</main>
+
 <!-- ═══ FOOTER ═══ -->
-<footer>
-  <p>© 2025–2026 <a href="https://dandollc.github.io" target="_blank" rel="noopener">Dando, LLC</a>. All rights reserved. · <a href="legal.html">Legal</a></p>
-  <p style="margin-top:0.5rem; font-style:italic; opacity:0.6;">Lineage in Service. Ideas Made Manifest.</p>
-  <div class="eco-links" role="navigation" aria-label="Related sites">
-    <a href="https://dandollc.github.io/">Daniel D. Calloway III</a>
-    <a href="https://dandollc.github.io/dando/">DANDO Advisory</a>
-    <a href="https://dandollc.github.io/callosway/" aria-current="page">Callo&rsquo;s Way</a>
-    <a href="https://dandollc.github.io/thedependencydesign/">The Dependency Design</a>
+<footer class="eco-footer">
+  <div class="eco-footer-inner">
+    <div class="footer-brand">
+      <img src="dando-mark-on-dark.png" width="43" height="44" alt="" aria-hidden="true">
+      <p class="footer-brand-name">DANDO LLC</p>
+      <p class="footer-tagline">Lineage in Service. Ideas Made Manifest.</p>
+      <a class="footer-work" href="https://dandollc.github.io/dando/#contact">Work with DANDO</a>
+    </div>
+    <nav aria-label="Sites">
+      <p class="footer-heading">Sites</p>
+      <ul class="footer-links">
+        <li><a href="https://dandollc.github.io/">Daniel D. Calloway III</a></li>
+        <li><a href="https://dandollc.github.io/dando/">DANDO Advisory</a></li>
+        <li><a href="https://dandollc.github.io/callosway/" aria-current="page">Callo&rsquo;s Way</a></li>
+        <li><a href="https://dandollc.github.io/thedependencydesign/">The Dependency Design</a></li>
+      </ul>
+    </nav>
+    <div>
+      <p class="footer-heading">Contact</p>
+      <ul class="footer-links">
+        <li><a href="mailto:daniel@dandollc.com">daniel@dandollc.com</a></li>
+        <li><a href="https://www.linkedin.com/in/callowayesq/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=7682344" target="_blank" rel="noopener">SSRN</a></li>
+        <li><a href="https://arxiv.org/abs/2608.20220" target="_blank" rel="noopener">arXiv (InsufficiencyBench)</a></li>
+        <li><a href="https://x.com/callos_way" target="_blank" rel="noopener">X</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025–2026 <a href="https://dandollc.github.io" target="_blank" rel="noopener">Dando, LLC</a>. All rights reserved.</p>
+    <span aria-hidden="true">·</span>
+    <a href="legal.html">Legal</a>
   </div>
 </footer>
 
-<!-- Breathing indicator -->
-<div class="breath-indicator"></div>
-
 <script>
-// Practice accordion
-function togglePractice(header) {
-  const item = header.parentElement;
-  const body = item.querySelector('.practice-body');
-  if (item.classList.contains('open')) {
-    item.classList.remove('open');
-    body.style.maxHeight = '0';
-  } else {
-    document.querySelectorAll('.practice-item.open').forEach(el => {
-      el.classList.remove('open');
-      el.querySelector('.practice-body').style.maxHeight = '0';
+/* Site menu */
+(function () {
+  var btn = document.querySelector('.eco-menu-btn');
+  var nav = document.getElementById('eco-nav');
+  if (!btn || !nav) return;
+  function setOpen(open) {
+    nav.classList.toggle('is-open', open);
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    btn.textContent = open ? 'Close' : 'Menu';
+  }
+  btn.addEventListener('click', function () { setOpen(btn.getAttribute('aria-expanded') !== 'true'); });
+  nav.addEventListener('click', function (e) { if (e.target.closest('a')) setOpen(false); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && btn.getAttribute('aria-expanded') === 'true') { setOpen(false); btn.focus(); }
+  });
+  var mq = window.matchMedia('(min-width: 901px)');
+  var onChange = function (e) { if (e.matches) setOpen(false); };
+  if (mq.addEventListener) mq.addEventListener('change', onChange); else if (mq.addListener) mq.addListener(onChange);
+})();
+
+/* Accordions: Practices open one at a time (as before); Discussion parts open independently */
+(function () {
+  document.querySelectorAll('[data-accordion]').forEach(function (group) {
+    var single = group.getAttribute('data-accordion') === 'single';
+    var triggers = group.querySelectorAll('.acc-trigger');
+    function set(t, open) {
+      t.setAttribute('aria-expanded', open ? 'true' : 'false');
+      document.getElementById(t.getAttribute('aria-controls')).classList.toggle('is-open', open);
+    }
+    triggers.forEach(function (t) {
+      t.addEventListener('click', function () {
+        var open = t.getAttribute('aria-expanded') !== 'true';
+        if (single && open) triggers.forEach(function (o) { if (o !== t) set(o, false); });
+        set(t, open);
+      });
     });
-    item.classList.add('open');
-    body.style.maxHeight = body.scrollHeight + 'px';
-  }
-}
+  });
+})();
 
-// Discussion accordion
-function toggleDiscussion(header) {
-  const part = header.parentElement;
-  const body = part.querySelector('.discussion-body');
-  if (part.classList.contains('open')) {
-    part.classList.remove('open');
-    body.style.maxHeight = '0';
-  } else {
-    part.classList.add('open');
-    body.style.maxHeight = body.scrollHeight + 'px';
-  }
-}
-
-// Signal Check
+// Signal Check (scoring and result text unchanged from the original page)
 const answers = {};
 const totalQs = 8;
 
-function selectOption(el) {
-  const q = el.closest('.signal-question');
+function selectOption(input) {
+  const q = input.closest('.signal-question');
   const qIdx = q.dataset.q;
-  q.querySelectorAll('.sq-option').forEach(o => o.classList.remove('selected'));
-  el.classList.add('selected');
-  answers[qIdx] = parseInt(el.dataset.val);
+  answers[qIdx] = parseInt(input.value);
+  document.getElementById('signal-count').textContent = Object.keys(answers).length;
 
   if (Object.keys(answers).length === totalQs) {
     const btn = document.getElementById('signal-btn');
-    btn.style.opacity = '1';
-    btn.style.pointerEvents = 'auto';
-    btn.removeAttribute('aria-disabled');
+    btn.disabled = false;
   }
 }
 
@@ -1611,64 +1344,15 @@ function showSignalResult() {
     <div class="result-practice">${practice}</div>
   `;
   resultDiv.classList.add('visible');
-  resultDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  resultDiv.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
 }
-</script>
 
-<script>
-/* Keyboard and screen-reader support for existing click controls (2026-10 preview).
-   The original onclick handlers still do the work; this only adds roles, focus and state. */
-(function () {
-  function pressable(el) {
-    el.setAttribute('tabindex', '0');
-    el.addEventListener('keydown', function (e) {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); el.click(); }
-    });
-  }
-  function watch(host, fn) {
-    fn();
-    new MutationObserver(fn).observe(host, { attributes: true, attributeFilter: ['class'] });
-  }
-  // Accordions
-  document.querySelectorAll('.practice-header, .discussion-header').forEach(function (h) {
-    h.setAttribute('role', 'button'); pressable(h);
-    var host = h.parentElement;
-    watch(host, function () { h.setAttribute('aria-expanded', host.classList.contains('open')); });
-  });
-  document.querySelectorAll('.discussion-item').forEach(function (item) {
-    var h = item.querySelector('h3');
-    if (!h) return;
-    h.setAttribute('role', 'button'); pressable(h);
-    watch(item, function () { h.setAttribute('aria-expanded', item.classList.contains('open')); });
-  });
-  // Single-choice questions
-  function radios(groupSel, optSel, selectedClass, labelFn) {
-    document.querySelectorAll(groupSel).forEach(function (g) {
-      g.setAttribute('role', 'radiogroup');
-      var label = labelFn(g);
-      if (label) g.setAttribute('aria-label', label);
-      g.querySelectorAll(optSel).forEach(function (o) {
-        o.setAttribute('role', 'radio'); pressable(o);
-        watch(o, function () { o.setAttribute('aria-checked', o.classList.contains(selectedClass)); });
-      });
-    });
-  }
-  radios('.sq-options', '.sq-option', 'selected', function (g) {
-    var q = g.closest('.signal-question'); var t = q && q.querySelector('.sq-text, p, h4');
-    return t ? t.textContent.trim() : '';
-  });
-  radios('.profile-scale', 'label', 'selected', function (g) {
-    var q = g.closest('.profile-question'); var t = q && q.querySelector('.q-loop');
-    return t ? t.textContent.trim() + ' (0 never, 4 nearly always)' : '';
-  });
-  // Menu button state
-  var mt = document.querySelector('.mobile-toggle'), nl = document.querySelector('.nav-links');
-  if (mt && nl) {
-    nl.id = nl.id || 'navLinks';
-    mt.setAttribute('aria-controls', nl.id);
-    watch(nl, function () { mt.setAttribute('aria-expanded', nl.classList.contains('active')); });
-  }
-})();
+document.querySelectorAll('#signal-questions input[type="radio"]').forEach(function (input) {
+  input.addEventListener('change', function () { selectOption(input); });
+  if (input.checked) selectOption(input); // restore state if the browser kept answers on reload
+});
+document.getElementById('signal-btn').addEventListener('click', showSignalResult);
 </script>
 </body>
 </html>
