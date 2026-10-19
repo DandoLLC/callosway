@@ -604,6 +604,8 @@ main section { scroll-margin-top: calc(var(--header-h) + 8px); }
 @media (max-width: 759px) { .footer-sep { display: none; } .footer-bottom p { flex-basis: 100%; } }
 @media (min-width: 760px) { .footer-bottom .footer-publisher { flex-basis: auto; margin-right: auto; } }
 .footer-publisher:hover { color: var(--sand); }
+sup.tm { font-size: 0.5em; font-style: normal; font-weight: 400; letter-spacing: 0; vertical-align: super; line-height: 0; margin-left: 0.06em; }
+.footer-bottom .tm-note { flex-basis: 100%; font-size: 0.72rem; line-height: 1.55; opacity: 0.85; margin: 0.25rem 0 0; }
 .footer-bottom {
   max-width: 1200px; margin: 0 auto; padding: 1rem var(--gutter-r) calc(1.5rem + env(safe-area-inset-bottom)) var(--gutter);
   border-top: 1px solid rgba(232,213,183,.12);
@@ -681,7 +683,7 @@ main section { scroll-margin-top: calc(var(--header-h) + 8px); }
   <div class="wrap hero-grid">
     <div>
       <p class="hero-series">Book I of III</p>
-      <h1 class="hero-title" id="book-title">Callo's <em>Way</em></h1>
+      <h1 class="hero-title" id="book-title">Callo's <em>Way</em><sup class="tm">&trade;</sup></h1>
       <p class="hero-tagline">The Art of Conscious Empowerment — A Rhythm Remembered</p>
       <p class="hero-author">Daniel D. Calloway III</p>
       <div class="hero-actions">
@@ -1183,7 +1185,7 @@ main section { scroll-margin-top: calc(var(--header-h) + 8px); }
       <h2 class="section-title" id="author-title">Daniel D. Calloway III</h2>
       <div class="author-bio">
         <p>Daniel D. Calloway III is an attorney, researcher and member of the Narragansett Indian Tribe. He has spent more than fifteen years in legal, regulatory and compliance work across financial services, technology and private equity, and he writes about human coherence with that practitioner's eye.</p>
-        <p><em>Callo's Way: The Art of Conscious Empowerment</em> is the first of three books, published by DANDO LLC. His standalone book <em>The Dependency Design</em> is about how technology displaces human connection. His research on SSRN and arXiv covers AI governance, legal AI evaluation, and the hegemonic function of artificial intelligence.</p>
+        <p><em>Callo's Way: The Art of Conscious Empowerment</em> is the first of three books, published by DANDO LLC. His standalone book <em>The Dependency Design</em><sup class="tm">&trade;</sup> is about how technology displaces human connection. His research on SSRN and arXiv covers AI governance, legal AI evaluation, and the hegemonic function of artificial intelligence.</p>
       </div>
       <ul class="author-links">
         <li><a href="https://dandollc.github.io" target="_blank" rel="noopener">Personal Site</a></li>
@@ -1244,6 +1246,7 @@ main section { scroll-margin-top: calc(var(--header-h) + 8px); }
     <a href="https://x.com/callos_way" target="_blank" rel="noopener noreferrer">@callos_way on X</a>
     <span class="footer-sep" aria-hidden="true">·</span>
     <a href="legal.html">Legal</a>
+    <p class="tm-note">Callo&rsquo;s Way, The Dependency Design and the D mark are trademarks of DANDO, LLC.</p>
   </div>
 </footer>
 
